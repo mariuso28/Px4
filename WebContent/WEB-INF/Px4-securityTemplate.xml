@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:security="http://www.springframework.org/schema/security"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+   http://www.springframework.org/schema/security 
+   http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+<import resource="Dx4-service.xml"/>
+
+
+ <!-- This is where we configure Spring-Security  -->
+ <security:http auto-config="true" use-expressions="true" 
+				access-denied-page="/denied.html" >
+  
+  <security:intercept-url pattern="/dx4Logon.html" access="permitAll"/>
+  <security:intercept-url pattern="/acc/*" access="hasAnyRole('ROLE_ADMIN','ROLE_AGENT')"/>
+  <security:intercept-url pattern="/admCmd/*" access="hasRole('ROLE_ADMIN')"/>
+  <security:intercept-url pattern="/adm/*" access="hasRole('ROLE_ADMIN')"/>
+  <security:intercept-url pattern="/admGame/*" access="hasRole('ROLE_ADMIN')"/>
+  <security:intercept-url pattern="/admLogon/*" access="hasRole('ROLE_ADMIN')"/>
+  <security:intercept-url pattern="/agnt/*" access="hasAnyRole('ROLE_COMP','ROLE_ZMA','ROLE_SMA','ROLE_MA','ROLE_AGENT')"/>
+  <security:intercept-url pattern="/agntLogon/*" access="hasAnyRole('ROLE_COMP','ROLE_ZMA','ROLE_SMA','ROLE_MA','ROLE_AGENT')"/>
+  <security:intercept-url pattern="/currNumExpo/*" access="hasAnyRole('ROLE_COMP','ROLE_ZMA','ROLE_SMA','ROLE_MA','ROLE_AGENT')"/>
+  <security:intercept-url pattern="/anal/*" access="hasAnyRole('ROLE_ADMIN','ROLE_COMP','ROLE_ZMA','ROLE_SMA','ROLE_MA','ROLE_AGENT','ROLE_PLAY')"/>
+  <security:intercept-url pattern="/hdgBet/*" access="hasRole('ROLE_COMP')"/>
+  <security:intercept-url pattern="/qkBet/*" access="hasRole('ROLE_PLAY')"/>
+  <security:intercept-url pattern="/hdg/*" access="hasRole('ROLE_COMP')"/>
+  <security:intercept-url pattern="/play/*" access="hasRole('ROLE_PLAY')"/>
+  <security:intercept-url pattern="/playLogon/*" access="hasRole('ROLE_PLAY')"/>
+ 
+ 
+  <security:form-login
+    login-page="/dx4Logon.html"
+    authentication-failure-url="/dx4Logon.html?error=true"
+    default-target-url="/logon.html" />
+    
+  <security:logout
+    invalidate-session="true"
+    logout-success-url="/dx4Logon.html"
+    logout-url="/logout.html"/>
+  
+ </security:http>
+  
+ <!-- Declare an authentication-manager to use a custom userDetailsService -->
+ <security:authentication-manager>
+         <security:authentication-provider user-service-ref="dx4UserDetailsService">
+           <security:password-encoder ref="passwordEncoder"/>
+         </security:authentication-provider>
+ </security:authentication-manager>
+  
+  
+ <!-- Use a Md5 encoder since the user's passwords are stored as Md5 in the database -->
+ <bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" id="passwordEncoder"/>
+ 
+  <!-- A custom service where Spring will retrieve users and their corresponding access levels  -->
+<bean id="dx4UserDetailsService"
+		class="org.dx4.security.Dx4UserDetailsService" >
+		<property name="dx4Services" ref="dx4Services" />
+</bean>
+ 
+  
+</beans>

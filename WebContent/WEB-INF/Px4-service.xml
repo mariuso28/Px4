@@ -1,0 +1,68 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+		    
+ 			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ 			http://www.springframework.org/schema/tx
+        	    http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<import resource="Px4-persistence.xml"/>	
+	<import resource="Px4-mail.xml"/>
+	<import resource="gz-persistence.xml"/>
+	
+	<context:annotation-config />
+		<bean class="org.dx4.config.SecurityConfiguration" />
+		<bean class="org.dx4.config.OAuth2AuthorizationServerConfig" />
+		<bean class="org.dx4.config.OAuth2ResourceServerConfig" />
+		<bean class="org.dx4.config.service.CustomUserDetailsService" />
+		<bean class="org.dx4.config.service.CustomAuthenticationSuccessHandler" />
+		<bean class="org.dx4.config.service.CustomAuthenticationFailureHandler" />
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="jsonServerServices"
+		class="org.dx4.json.server.JsonServerServices">
+	</bean>
+
+	<bean id="dx4Services"
+		class="org.dx4.services.Dx4Services" init-method="initServices" >
+		<property name="dx4Home" ref="dx4Home" />
+		<property name="transactionManager" ref="transactionManager"/>	
+		<property name="mail" ref="mail" />
+		<property name="dx4PropertiesPath" value="/home/pmk/px4/dx4.properties" />
+	</bean>
+
+	<bean id="dx4ServerBean"
+		class="org.dx4.server.Dx4ServerBeanImpl">
+		<constructor-arg ref="dx4Services" />
+	</bean>
+
+	<bean id="restServices"
+		class="org.dx4.services.RestServices" >
+	</bean>
+
+	<bean id="gzAccountMgr"
+			class="org.gz.account.GzAccountMgr">
+	</bean>
+
+	<bean id="gzServices"
+		class="org.gz.services.GzServices" init-method="initServices" >
+		<property name="transactionManager" ref="transactionManager1"/>
+		<property name="gzProperties" value="/home/pmk/p99-properties/p99.properties"/>
+		<property name="gzAccountMgr" ref="gzAccountMgr" />
+		<property name="gzHome" ref="gzHome" />			<!-- do last -->
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager1"/>
+	<bean id="transactionManager1" 
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource1"/></bean>
+
+</beans>

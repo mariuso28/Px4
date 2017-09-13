@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p" 
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+		
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/PX4"/>
+		<property name="username" value="pmk" />
+		<property name="password" value="pmk" />
+		<property name="initialSize" value="100" />
+		<property name="maxActive" value="150" />
+	</bean>
+	
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<bean id="dx4GameDao"
+		class="org.dx4.game.persistence.JdbcDx4GameDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+	
+	<bean id="dx4PlayGameDao"
+		class="org.dx4.game.persistence.JdbcDx4PlayGameDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+
+	<bean id="dx4MetaGameDao"
+		class="org.dx4.game.persistence.JdbcDx4MetaGameDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="dx4GameDao" ref="dx4GameDao" />	
+		<property name="dx4PlayGameDao" ref="dx4PlayGameDao" />	
+	</bean>
+
+
+	<bean id="dx4BetDao"
+		class="org.dx4.bet.persistence.JdbcDx4BetDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+
+	<bean id="dx4MetaBetDao"
+		class="org.dx4.bet.persistence.JdbcMetaBetDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="dx4BetDao" ref="dx4BetDao" />	
+	</bean>
+
+
+	<bean id="drawResultDao"
+		class="org.dx4.external.persistence.JdbcDrawResultDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+
+	<bean id="dx4AccountDao"
+		class="org.dx4.account.persistence.JdbcDx4AccountDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+
+	<bean id="dx4SecureUserDao"
+		class="org.dx4.secure.persistence.JdbcDx4SecureUserDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="dx4AccountDao" ref="dx4AccountDao" />	
+		<property name="dx4MetaGameDao" ref="dx4MetaGameDao" />	
+	</bean>
+
+
+	<bean id="dx4PlayerDao"
+		class="org.dx4.player.persistence.JdbcDx4PlayerDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />	
+	</bean>
+
+
+	<bean id="dx4AdminDao"
+		class="org.dx4.admin.persistence.JdbcDx4AdminDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+
+	<bean id="dx4AgentDao"
+		class="org.dx4.agent.persistence.JdbcDx4AgentDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+	<bean id="dx4NumberXDao"
+		class="org.dx4.external.persistence.JdbcDx4NumberXDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+
+	<bean id="dx4Home"
+		class="org.dx4.home.persistence.Dx4HomeImpl">
+		<property name="dx4PlayerDao" ref="dx4PlayerDao" />
+		<property name="dx4AdminDao" ref="dx4AdminDao" />
+		<property name="dx4AgentDao" ref="dx4AgentDao" />
+		<property name="dx4MetaGameDao" ref="dx4MetaGameDao" />	
+		<property name="dx4MetaBetDao" ref="dx4MetaBetDao" />	
+		<property name="drawResultDao" ref="drawResultDao" />
+		<property name="dx4SecureUserDao" ref="dx4SecureUserDao" />
+		<property name="dx4AccountDao" ref="dx4AccountDao" />	
+		<property name="dx4NumberXDao" ref="dx4NumberXDao" />	
+	</bean>
+
+
+</beans>
