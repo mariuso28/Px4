@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.log4j.Logger;
+import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.account.GzAccount;
 import org.gz.account.GzBaseTransaction;
 import org.gz.account.GzDeposit;
@@ -24,7 +25,6 @@ import org.gz.baseuser.GzBaseUser;
 import org.gz.baseuser.GzRole;
 import org.gz.home.persistence.GzPersistenceException;
 import org.gz.home.persistence.GzPersistenceRuntimeException;
-import org.gz.json.GzGameType;
 import org.gz.web.summary.GzSummaryEntry;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -823,14 +823,14 @@ public class GzAccountDaoImpl extends NamedParameterJdbcDaoSupport implements Gz
 	
 	private void storeDefaultNumberRetainers(GzBaseUser baseUser) {
 		
-		for (GzGameType gt : GzGameType.values())
+		for (Dx4GameTypeJson gt : Dx4GameTypeJson.values())
 		{
 			storeGzNumberRetainer(new GzNumberRetainer(baseUser.getMemberId(),gt,"XXXX",true,0.0));
 		}
 	}
 	
 	@Override
-	public GzNumberRetainer getGzNumberRetainerForUser(GzBaseUser user,GzGameType gameType,String number)
+	public GzNumberRetainer getGzNumberRetainerForUser(GzBaseUser user,Dx4GameTypeJson gameType,String number)
 	{
 	//	log.info("getGzDefaultNumberRetainersForUser " + user);
 		try

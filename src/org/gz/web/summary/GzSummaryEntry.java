@@ -1,11 +1,11 @@
 package org.gz.web.summary;
 
-import org.gz.json.GzGameType;
+import org.dx4.json.message.Dx4GameTypeJson;
 
 public class GzSummaryEntry {
 
 	private String memberId;
-	private GzGameType gameType;
+	private Dx4GameTypeJson gameType;
 	private double flight;
 	private double retain;
 	
@@ -13,11 +13,11 @@ public class GzSummaryEntry {
 	{
 	}
 
-	public GzGameType getGameType() {
+	public Dx4GameTypeJson getGameType() {
 		return gameType;
 	}
 
-	public void setGameType(GzGameType gameType) {
+	public void setGameType(Dx4GameTypeJson gameType) {
 		this.gameType = gameType;
 	}
 

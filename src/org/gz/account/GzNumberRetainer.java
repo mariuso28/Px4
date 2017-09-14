@@ -1,11 +1,11 @@
 package org.gz.account;
 
-import org.gz.json.GzGameType;
+import org.dx4.json.message.Dx4GameTypeJson;
 
 public class GzNumberRetainer {
 
 	private long id;
-	private GzGameType gameType;
+	private Dx4GameTypeJson gameType;
 	private boolean defaultNumber;
 	private String number;
 	private String memberId;
@@ -16,7 +16,7 @@ public class GzNumberRetainer {
 		
 	}
 
-	public GzNumberRetainer( String memberId,GzGameType gameType,String number,boolean defaultNumber,double retain)
+	public GzNumberRetainer( String memberId,Dx4GameTypeJson gameType,String number,boolean defaultNumber,double retain)
 	{
 		setMemberId(memberId);
 		setGameType(gameType);
@@ -25,11 +25,11 @@ public class GzNumberRetainer {
 		setRetain(retain);
 	}
 	
-	public GzGameType getGameType() {
+	public Dx4GameTypeJson getGameType() {
 		return gameType;
 	}
 
-	public void setGameType(GzGameType gameType) {
+	public void setGameType(Dx4GameTypeJson gameType) {
 		this.gameType = gameType;
 	}
 

@@ -87,6 +87,7 @@ public interface Dx4Home {
 	public void storeMetabetId(UUID id);
 	
 	public void storeMetaGame(Dx4MetaGame game) throws PersistenceRuntimeException;
+	public void storeGameForMetaGame(Dx4MetaGame metaGame,Dx4Game game) throws PersistenceRuntimeException;
 	public List<Dx4MetaGame> getMetaGames();
 	public List<Dx4MetaGame> getUnplayedMetaGames();
 	public Dx4MetaGame getMetaGame(String name);

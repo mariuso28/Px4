@@ -44,7 +44,7 @@ public class Dx4MetaGameJson
 			List<Dx4GameTypeJson> gameTypes = new ArrayList<Dx4GameTypeJson>();
 			switch (bet.getChoice().length())
 			{
-				case 2 : gameTypes.add(Dx4GameTypeJson.D2); break;
+				case 2 : gameTypes.add(Dx4GameTypeJson.D2A); break;
 				case 3 : if (bet.getBig()>0)
 							gameTypes.add(Dx4GameTypeJson.ABCC);
 						 if (bet.getSmall()>0)

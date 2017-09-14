@@ -337,7 +337,7 @@ public class JsonServerServices {
 		else
 			bj.setSmall(bet.getStake());
 		
-		if (gType.equals(Dx4GameTypeJson.D2) || gType.equals(Dx4GameTypeJson.ABCA) 
+		if (gType.equals(Dx4GameTypeJson.D2A) || gType.equals(Dx4GameTypeJson.ABCA) 
 				|| gType.equals(Dx4GameTypeJson.D4Small)
 					|| (gType.equals(Dx4GameTypeJson.ABCC) 
 							|| gType.equals(Dx4GameTypeJson.D4Big)))

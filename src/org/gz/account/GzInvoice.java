@@ -2,7 +2,7 @@ package org.gz.account;
 
 import java.util.Date;
 
-import org.gz.json.GzGameType;
+import org.dx4.json.message.Dx4GameTypeJson;
 
 public class GzInvoice extends GzDeposit {
 	
@@ -14,7 +14,7 @@ public class GzInvoice extends GzDeposit {
 	
 	private double flight;
 	private double retain;
-	private GzGameType gameType;
+	private Dx4GameTypeJson gameType;
 	private long parentId;
 	private Date dueDate;
 	private long paymentId;
@@ -24,7 +24,7 @@ public class GzInvoice extends GzDeposit {
 	{
 	}
 
-	public GzInvoice(String payer,String payee,double flight,double retain,Date timestamp,Date dueDate,GzGameType gameType)
+	public GzInvoice(String payer,String payee,double flight,double retain,Date timestamp,Date dueDate,Dx4GameTypeJson gameType)
 	{
 		setPayer(payer);
 		setPayee(payee);
@@ -91,11 +91,11 @@ public class GzInvoice extends GzDeposit {
 		this.flight = flight;
 	}
 
-	public GzGameType getGameType() {
+	public Dx4GameTypeJson getGameType() {
 		return gameType;
 	}
 
-	public void setGameType(GzGameType gameType) {
+	public void setGameType(Dx4GameTypeJson gameType) {
 		this.gameType = gameType;
 	}
 

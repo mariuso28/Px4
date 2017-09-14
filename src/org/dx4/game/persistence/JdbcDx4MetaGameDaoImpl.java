@@ -64,6 +64,12 @@ public class JdbcDx4MetaGameDaoImpl extends NamedParameterJdbcDaoSupport impleme
 			storeProviderMap(metaGame,provider);
 	}
 	
+
+	@Override
+	public void storeGameForMetaGame(Dx4MetaGame metaGame, Dx4Game game) {
+		dx4GameDao.store(metaGame,game);
+	}
+	
 	private void storeProviderMap(Dx4MetaGame metaGame, String provider) {
 		String sql = "INSERT INTO PROVIDERMGLINK ( METAGAMEID, PROVIDERID )" +
 				" VALUES ( " + metaGame.getId() + "," + 
@@ -424,5 +430,6 @@ public class JdbcDx4MetaGameDaoImpl extends NamedParameterJdbcDaoSupport impleme
 	public FxForPlayGame getFxForPlayGame(long playGameId, String fromCcy, String toCcy) {
 		return dx4PlayGameDao.getFxForPlayGame(playGameId, fromCcy, toCcy);
 	}
+
 	
 }

@@ -36,4 +36,5 @@ public interface Dx4MetaGameDao {
 	public void storeMetaGameImage(final long metaGameId,final String name,final byte[] image);
 	
 	public void updatePayOuts(Dx4Game game);
+	public void storeGameForMetaGame(Dx4MetaGame metaGame, Dx4Game game);
 }

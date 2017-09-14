@@ -179,6 +179,11 @@ public class Dx4HomeImpl implements Dx4Home {
 		public void storeMetaGame(Dx4MetaGame game) throws PersistenceRuntimeException {
 			dx4MetaGameDao.store(game);
 		}
+		
+		@Override
+		public void storeGameForMetaGame(Dx4MetaGame metaGame,Dx4Game game) throws PersistenceRuntimeException {
+			dx4MetaGameDao.storeGameForMetaGame(metaGame,game);
+		}
 
 		@Override
 		public List<Dx4MetaGame> getMetaGames() {

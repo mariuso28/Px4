@@ -5,11 +5,11 @@ import java.util.GregorianCalendar;
 import java.util.Random;
 
 import org.apache.log4j.Logger;
+import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.baseuser.GzBaseUser;
 import org.gz.home.GzHome;
 import org.gz.home.persistence.GzPersistenceException;
 import org.gz.json.GzBet;
-import org.gz.json.GzGameType;
 import org.gz.services.GzServices;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -18,14 +18,14 @@ public class SimulateBets
 {
 	private static Logger log = Logger.getLogger(SimulateBets.class);
 
-	public static GzGameType createGameType()
+	public static Dx4GameTypeJson createGameType()
 	{
-		int num = GzGameType.values().length;
+		int num = Dx4GameTypeJson.values().length;
 		Random rand = new Random();
-		return GzGameType.values()[rand.nextInt(num)];
+		return Dx4GameTypeJson.values()[rand.nextInt(num)];
 	}
 	
-	public static String createChoice(GzGameType gameType)
+	public static String createChoice(Dx4GameTypeJson gameType)
 	{
 		Random rand = new Random();
 		String choice = ""+ rand.nextInt(10) + rand.nextInt(10) + rand.nextInt(10);

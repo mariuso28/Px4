@@ -2,13 +2,13 @@ package org.gz.account;
 
 import java.util.Date;
 
-import org.gz.json.GzGameType;
+import org.dx4.json.message.Dx4GameTypeJson;
 
 public class GzTransaction extends GzBaseTransaction {
 	
 	private static final long serialVersionUID = 659183036584351555L;
 	private String source;
-	private GzGameType gameType;
+	private Dx4GameTypeJson gameType;
 	private String number;
 	private long invoiceId;
 	public final static char BET = 'B';
@@ -18,7 +18,7 @@ public class GzTransaction extends GzBaseTransaction {
 	{
 	}
 	
-	public GzTransaction(String payer,String payee,Character type,double amount,Date timestamp,GzGameType gameType, String source,String number)
+	public GzTransaction(String payer,String payee,Character type,double amount,Date timestamp,Dx4GameTypeJson gameType, String source,String number)
 	{
 		super(payer,payee,type,amount,timestamp);
 		setType(type);
@@ -43,11 +43,11 @@ public class GzTransaction extends GzBaseTransaction {
 		this.source = source;
 	}
 
-	public GzGameType getGameType() {
+	public Dx4GameTypeJson getGameType() {
 		return gameType;
 	}
 
-	public void setGameType(GzGameType gameType) {
+	public void setGameType(Dx4GameTypeJson gameType) {
 		this.gameType = gameType;
 	}
 

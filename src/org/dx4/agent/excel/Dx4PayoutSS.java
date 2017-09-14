@@ -155,7 +155,7 @@ public class Dx4PayoutSS {
 
 	private int create2D(int rownum)
 	{
-		Dx4Game gameD2 = metaGame.getGameByType(Dx4GameTypeJson.D2);
+		Dx4Game gameD2 = metaGame.getGameByType(Dx4GameTypeJson.D2A);
 		Row row = sheet.createRow(rownum++);
 		addHeader2(row,0,"2D");
         row = sheet.createRow(rownum++);

@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.dx4.game.Dx4IboxMatch;
+import org.dx4.game.d4.Dx4IboxMatch;
 
 public class Dx4DrawResultIboxJson {
 

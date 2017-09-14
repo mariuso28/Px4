@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.account.GzAccount;
 import org.gz.account.GzInvoice;
 import org.gz.account.GzNumberRetainer;
@@ -17,7 +18,6 @@ import org.gz.agent.GzAgent;
 import org.gz.baseuser.GzBaseUser;
 import org.gz.baseuser.GzRole;
 import org.gz.home.persistence.GzPersistenceException;
-import org.gz.json.GzGameType;
 import org.gz.web.summary.GzSummaryEntry;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.multipart.MultipartFile;
@@ -88,7 +88,7 @@ public interface GzHome
 	public void storeGzNumberRetainer(GzNumberRetainer nr);
 	public void updateGzNumberRetainer(GzNumberRetainer nr);
 	public List<GzNumberRetainer> getGzDefaultNumberRetainersForUser(GzBaseUser user, int digits);
-	public GzNumberRetainer getGzNumberRetainerForUser(GzBaseUser user, GzGameType gameType, String number);
+	public GzNumberRetainer getGzNumberRetainerForUser(GzBaseUser user, Dx4GameTypeJson gameType, String number);
 	public List<GzNumberRetainer> getGzIndividualNumberRetainersForUser(GzBaseUser user, int digits);
 	
 	public List<GzSummaryEntry> getSummaryEntries(GzBaseUser superior);

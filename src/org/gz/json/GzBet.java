@@ -2,10 +2,12 @@ package org.gz.json;
 
 import java.util.Date;
 
+import org.dx4.json.message.Dx4GameTypeJson;
+
 public class GzBet {
 	private String memberId;
 	private String choice;  
-	private GzGameType gameType;  			
+	private Dx4GameTypeJson gameType;  			
 	private double totalStake;
 	private Date playDate;
 	
@@ -29,11 +31,11 @@ public class GzBet {
 		this.choice = choice;
 	}
 
-	public GzGameType getGameType() {
+	public Dx4GameTypeJson getGameType() {
 		return gameType;
 	}
 
-	public void setGameType(GzGameType gameType) {
+	public void setGameType(Dx4GameTypeJson gameType) {
 		this.gameType = gameType;
 	}
 

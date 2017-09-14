@@ -6,7 +6,7 @@ public enum Dx4GameGroupJson
 	IBox("IBox",Dx4GameTypeJson.D4IBoxBig,Dx4GameTypeJson.D4IBoxSmall,4),  
 	Box("Box",Dx4GameTypeJson.D4BoxBig,Dx4GameTypeJson.D4BoxSmall,4),
 	ABC("3 Digits",Dx4GameTypeJson.ABCC,Dx4GameTypeJson.ABCA,3),
-	D2("2 Digits",null,Dx4GameTypeJson.D2,2);
+	D2("2 Digits",null,Dx4GameTypeJson.D2A,2);
 	
 	private String name;
 	private Dx4GameTypeJson big;

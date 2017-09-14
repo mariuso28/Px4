@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.log4j.Logger;
+import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.account.GzAccount;
 import org.gz.account.GzInvoice;
 import org.gz.account.GzNumberRetainer;
@@ -28,7 +29,6 @@ import org.gz.baseuser.GzBaseUser;
 import org.gz.baseuser.GzRole;
 import org.gz.baseuser.persistence.GzBaseUserDao;
 import org.gz.home.GzHome;
-import org.gz.json.GzGameType;
 import org.gz.web.summary.GzSummaryEntry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -382,7 +382,7 @@ public class GzHomeDaoImpl implements GzHome {
 	}
 	
 	@Override
-	public GzNumberRetainer getGzNumberRetainerForUser(GzBaseUser user, GzGameType gameType, String number)
+	public GzNumberRetainer getGzNumberRetainerForUser(GzBaseUser user, Dx4GameTypeJson gameType, String number)
 	{
 		return gzAccountDao.getGzNumberRetainerForUser(user, gameType, number);
 	}

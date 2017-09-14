@@ -5,11 +5,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.apache.log4j.Logger;
-import org.dx4.game.Dx42DigitGame;
-import org.dx4.game.Dx44DigitGameBig;
-import org.dx4.game.Dx44DigitGameSmall;
 import org.dx4.game.Dx4MetaGame;
 import org.dx4.game.Dx4PlayGame;
+import org.dx4.game.d2.Dx4GameD2A;
+import org.dx4.game.d4.Dx4GameD4Big;
+import org.dx4.game.d4.Dx4GameD4Small;
 import org.dx4.game.payout.Dx4PayOut;
 import org.dx4.home.Dx4Home;
 import org.dx4.json.message.Dx4PayOutTypeJson;
@@ -36,7 +36,7 @@ public class TestGames
 	@SuppressWarnings("unused")
 	private static void testDx42DigitGame(Dx4MetaGame dx4MetaGame)
 	{
-		Dx42DigitGame game = new Dx42DigitGame();
+		Dx4GameD2A game = new Dx4GameD2A();
 		game.setMaxBet(100.0);
 		game.setMinBet(1);
 		game.addPayOut(new Dx4PayOut(Dx4PayOutTypeJson.First,100));
@@ -62,7 +62,7 @@ public class TestGames
 	
 	private static void testDx44DigitBigSmall(Dx4MetaGame dx4MetaGame)
 	{
-		Dx44DigitGameBig game = new Dx44DigitGameBig();
+		Dx4GameD4Big game = new Dx4GameD4Big();
 		game.setMaxBet(100.0);
 		game.setMinBet(1);
 		game.addPayOut(new Dx4PayOut(Dx4PayOutTypeJson.First,2500.00));
@@ -73,7 +73,7 @@ public class TestGames
 		game.setStake(1);
 		dx4MetaGame.getGames().add(game);
 		
-		Dx44DigitGameSmall game1 = new Dx44DigitGameSmall();
+		Dx4GameD4Small game1 = new Dx4GameD4Small();
 		game1.setMaxBet(100.0);
 		game1.setMinBet(1);
 		game1.addPayOut(new Dx4PayOut(Dx4PayOutTypeJson.First,3500.00));

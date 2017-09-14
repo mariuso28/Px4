@@ -5,19 +5,19 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
 
+import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.baseuser.GzBaseUser;
-import org.gz.json.GzGameType;
 
 public class GzSummaryMembers {
 
-	private GzGameType[] gameTypes;
+	private Dx4GameTypeJson[] gameTypes;
 	private GzBaseUser superior;
 	private Map<UUID,GzSummaryRow> rowMap = new HashMap<UUID,GzSummaryRow>();
 	private Map<String,GzSummaryRow> rows = new TreeMap<String,GzSummaryRow>();
 	
 	public GzSummaryMembers()
 	{
-		gameTypes=GzGameType.values();	
+		gameTypes=Dx4GameTypeJson.values();	
 	}
 
 	public GzSummaryMembers(GzBaseUser superior) {
@@ -41,11 +41,11 @@ public class GzSummaryMembers {
 		this.rows = rows;
 	}
 
-	public GzGameType[] getGameTypes() {
+	public Dx4GameTypeJson[] getGameTypes() {
 		return gameTypes;
 	}
 
-	public void setGameTypes(GzGameType[] gameTypes) {
+	public void setGameTypes(Dx4GameTypeJson[] gameTypes) {
 		this.gameTypes = gameTypes;
 	}
 

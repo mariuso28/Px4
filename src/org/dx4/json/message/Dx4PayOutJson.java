@@ -9,6 +9,12 @@ public class Dx4PayOutJson {
 	{
 	}
 
+	public Dx4PayOutJson(Dx4PayOutTypeJson type,double payOut)
+	{
+		setType(type);
+		setPayOut(payOut);
+	}
+	
 	public Dx4PayOutTypeJson getType() {
 		return type;
 	}

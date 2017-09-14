@@ -17,5 +17,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/pmk/w3/Px4/WebContent/WEB-INF"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

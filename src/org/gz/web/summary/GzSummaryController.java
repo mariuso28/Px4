@@ -45,7 +45,7 @@ public class GzSummaryController {
 	@RequestMapping(value = "/expand", method = RequestMethod.GET)
 	public Object expand(ModelMap model,String id) {
 		
-		log.info("Received request to expand");
+		// log.info("Received request to expand");
 		GzSummaryManager summaryManager = new GzSummaryManager();
 		GzSummaryMembers summaryMembers = (GzSummaryMembers) model.get("currSummaryMembers");
 		try {

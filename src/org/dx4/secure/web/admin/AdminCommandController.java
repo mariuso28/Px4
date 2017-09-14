@@ -61,7 +61,7 @@ public class AdminCommandController {
 		addGameType(gameTypeList,metaGame,Dx4GameTypeJson.D4Big);
 		addGameType(gameTypeList,metaGame,Dx4GameTypeJson.ABCA);
 		addGameType(gameTypeList,metaGame,Dx4GameTypeJson.ABCC);
-		addGameType(gameTypeList,metaGame,Dx4GameTypeJson.D2);
+		addGameType(gameTypeList,metaGame,Dx4GameTypeJson.D2A);
 		model.addAttribute("gameTypeList",gameTypeList);
 		if (gameTypeList.size()>0)
 			return gameTypeList.get(0);

@@ -314,7 +314,7 @@ public class RestServices {
 		String choice = bj.getChoice();
 		if (choice.length()==2)
 		{
-			Dx4GameTypeJson gType = Dx4GameTypeJson.D2;
+			Dx4GameTypeJson gType = Dx4GameTypeJson.D2A;
 			bet.setGame(mg.getGameByType(gType));
 			bets.add(bet);
 			bet.setStake(bj.getSmall());

@@ -4,8 +4,8 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
 
+import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.baseuser.GzBaseUser;
-import org.gz.json.GzGameType;
 
 public class GzSummaryRow {
 
@@ -19,7 +19,7 @@ public class GzSummaryRow {
 	{		
 		setId(UUID.randomUUID());
 		entries = new TreeMap<Integer,GzSummaryEntry>();
-		for (GzGameType gt : GzGameType.values())
+		for (Dx4GameTypeJson gt : Dx4GameTypeJson.values())
 			entries.put(gt.getIndex(), new GzSummaryEntry());
 	}
 	

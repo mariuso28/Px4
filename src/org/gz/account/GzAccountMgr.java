@@ -6,13 +6,13 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.agent.GzAgent;
 import org.gz.baseuser.GzBaseUser;
 import org.gz.baseuser.GzRole;
 import org.gz.baseuser.GzRoleType;
 import org.gz.home.GzHome;
 import org.gz.home.persistence.GzPersistenceException;
-import org.gz.json.GzGameType;
 import org.gz.services.GzServices;
 
 public class GzAccountMgr {
@@ -37,7 +37,7 @@ public class GzAccountMgr {
 		return nrs;
 	}
 	
-	public void createTransactions(GzBaseUser player,double amount,String source,GzGameType gameType,String number) throws GzPersistenceException
+	public void createTransactions(GzBaseUser player,double amount,String source,Dx4GameTypeJson gameType,String number) throws GzPersistenceException
 	{
 		log.info("Creating transactions for : " + player + " source: " + source);
 		GregorianCalendar gc = new GregorianCalendar();
@@ -52,7 +52,7 @@ public class GzAccountMgr {
 		createTransactionsForPlayer(player,amount,agent,source,gameType,now,number);
 	}
 
-	private void createTransactionsForPlayer(GzBaseUser player,double amount,GzAgent agent,String source,GzGameType gameType,Date now,String number) throws GzPersistenceException
+	private void createTransactionsForPlayer(GzBaseUser player,double amount,GzAgent agent,String source,Dx4GameTypeJson gameType,Date now,String number) throws GzPersistenceException
 	{
 		GzTransaction transaction = new GzTransaction(player.getMemberId(),agent.getMemberId(),GzTransaction.BET,amount,now,gameType,source,number);
 		
@@ -94,7 +94,7 @@ public class GzAccountMgr {
 	}
 	
 	private GzInvoice storeOrUpdateInvoice(GzBaseUser payer,GzBaseUser payee,double flight,double retain,
-			Date now,GzInvoice subInvoice,GzGameType gameType) throws GzPersistenceException
+			Date now,GzInvoice subInvoice,Dx4GameTypeJson gameType) throws GzPersistenceException
 	{
 //		GzInvoice invoice = home.getOpenInvoice(payer.getEmail(),payee.getEmail());
 	//	if (invoice == null)
