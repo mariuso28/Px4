@@ -6,6 +6,7 @@ import org.dx4.game.Dx4MetaGame;
 import org.dx4.game.d2.Dx4GameD2A;
 import org.dx4.game.d2.Dx4GameD2B;
 import org.dx4.game.d2.Dx4GameD2C;
+import org.dx4.game.d2.Dx4GameD2CC;
 import org.dx4.game.d2.Dx4GameD2D;
 import org.dx4.game.d2.Dx4GameD2E;
 import org.dx4.game.d2.Dx4GameD2EX;
@@ -64,8 +65,9 @@ public class TestGamesZZ
 		game = new Dx4GameD2B();
 		game.addPayOut(new Dx4PayOut(Dx4PayOutTypeJson.Second,67.00));
 		dx4MetaGame.getGames().add(game);
+		dx4Home.storeGameForMetaGame(dx4MetaGame, game);
 		
-		game = new Dx4GameD2C();
+		game = new Dx4GameD2CC();
 		game.addPayOut(new Dx4PayOut(Dx4PayOutTypeJson.Third,67.00));
 		dx4MetaGame.getGames().add(game);
 		dx4Home.storeGameForMetaGame(dx4MetaGame, game);
@@ -157,6 +159,7 @@ public class TestGamesZZ
 		game = new Dx4GameD4B();
 		game.addPayOut(new Dx4PayOut(Dx4PayOutTypeJson.Second,6000.00));
 		dx4MetaGame.getGames().add(game);
+		dx4Home.storeGameForMetaGame(dx4MetaGame, game);
 		
 		game = new Dx4GameD4CC();
 		game.addPayOut(new Dx4PayOut(Dx4PayOutTypeJson.Third,6000.00));
@@ -217,13 +220,13 @@ public class TestGamesZZ
 		
 		try
 		{
-	//		Dx4MetaGame metaGame = dx4Home.getMetaGame("4D With ABC");
-	//		createGames(dx4Home,metaGame);
-			
-	//		log.info("Done");
-			
 			Dx4MetaGame metaGame = dx4Home.getMetaGame("4D With ABC");
-			for (Dx4Game game : metaGame.getGames())
+			createGames(dx4Home,metaGame);
+			
+			log.info("Done");
+			
+			Dx4MetaGame metaGame1 = dx4Home.getMetaGame("4D With ABC");
+			for (Dx4Game game : metaGame1.getGames())
 				log.info(game);
 		}
 		

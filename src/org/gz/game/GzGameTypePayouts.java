@@ -3,13 +3,15 @@ package org.gz.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dx4.game.payout.Dx4PayOut;
 import org.dx4.json.message.Dx4GameTypeJson;
-import org.dx4.json.message.Dx4PayOutJson;
 
 public class GzGameTypePayouts {
 
+	private long id;
 	private Dx4GameTypeJson gameType;
-	private List<Dx4PayOutJson> payOuts = new ArrayList<Dx4PayOutJson>();
+	private double commission;
+	private List<Dx4PayOut> payOuts = new ArrayList<Dx4PayOut>();
 	
 	public GzGameTypePayouts()
 	{
@@ -26,7 +28,7 @@ public class GzGameTypePayouts {
 		setGameType(gameType);
 	}
 
-	public void addInPayOut(Dx4PayOutJson payout)
+	public void addInPayOut(Dx4PayOut payout)
 	{
 		switch (payout.getType().getPlace())
 		{
@@ -47,12 +49,34 @@ public class GzGameTypePayouts {
 		this.gameType = gameType;
 	}
 
-	public List<Dx4PayOutJson> getPayOuts() {
+	public List<Dx4PayOut> getPayOuts() {
 		return payOuts;
 	}
 
-	public void setPayOuts(List<Dx4PayOutJson> payOuts) {
+	public void setPayOuts(List<Dx4PayOut> payOuts) {
 		this.payOuts = payOuts;
+	}
+
+
+	public double getCommission() {
+		return commission;
+	}
+
+	public void setCommission(double commission) {
+		this.commission = commission;
+	}
+
+	@Override
+	public String toString() {
+		return "GzGameTypePayouts [gameType=" + gameType + ", commission=" + commission + ", payOuts=" + payOuts + "]";
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 }

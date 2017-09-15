@@ -49,6 +49,7 @@ public enum Dx4PayOutTypeJson{
 	public void setPlace(char place) {
 		this.place = place;
 	}
+
 	
 	
 }

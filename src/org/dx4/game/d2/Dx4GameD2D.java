@@ -20,7 +20,7 @@ public class Dx4GameD2D extends Dx4Game {
 	
 	public Dx4GameD2D()
 	{
-		setGtype(Dx4GameTypeJson.D2E);
+		setGtype(Dx4GameTypeJson.D2D);
 	}
 
 	@Override

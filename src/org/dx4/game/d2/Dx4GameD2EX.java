@@ -22,7 +22,7 @@ public class Dx4GameD2EX extends Dx4GameD2C {
 	
 	public Dx4GameD2EX()
 	{
-		setGtype(Dx4GameTypeJson.D4Big);
+		setGtype(Dx4GameTypeJson.D2EX);
 	}
 
 	@Override

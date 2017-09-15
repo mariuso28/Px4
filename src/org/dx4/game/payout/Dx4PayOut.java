@@ -44,5 +44,4 @@ public class Dx4PayOut implements Serializable
 		return "Dx4PayOut [type=" + type + ", payOut=" + payOut + "]";
 	}
 	
-	
 }

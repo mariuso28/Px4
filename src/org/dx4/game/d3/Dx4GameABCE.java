@@ -23,7 +23,7 @@ public class Dx4GameABCE extends Dx4Game {
 	
 	public Dx4GameABCE()
 	{
-		setGtype(Dx4GameTypeJson.ABCD);
+		setGtype(Dx4GameTypeJson.ABCE);
 	}
 
 	@Override
