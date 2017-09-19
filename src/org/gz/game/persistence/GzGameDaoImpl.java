@@ -1,5 +1,6 @@
 package org.gz.game.persistence;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -11,10 +12,12 @@ import org.apache.log4j.Logger;
 import org.dx4.game.payout.Dx4PayOut;
 import org.dx4.json.message.Dx4GameTypeJson;
 import org.gz.game.GzGameTypePayouts;
+import org.gz.game.GzGroup;
 import org.gz.game.GzPackage;
 import org.gz.home.persistence.GzPersistenceRuntimeException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -27,20 +30,92 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 	private static Logger log = Logger.getLogger(GzGameDaoImpl.class);
 	
 	@Override
-	public void storePackage(GzPackage gzPackage) {
-		final Timestamp t1 = new Timestamp(gzPackage.getCreated().getTime());
+	public void addPackageToGroup(GzGroup group,GzPackage gzPackage)
+	{
+		group.getPackages().put(gzPackage.getName(), gzPackage);
+		getJdbcTemplate().update("UPDATE package SET groupid = ?", new Object[]{ group.getId() } );
+	}
+	
+	@Override
+	public void storeGroup(GzGroup group) {
+		final Timestamp t1 = new Timestamp(group.getCreated().getTime());
+		String sql = "INSERT INTO gzgroup (name,description,memberid,created) VALUES( ?, ?, ?, ?)";
 		try
 		{
 			KeyHolder keyHolder = new GeneratedKeyHolder();
-			getJdbcTemplate().update("INSERT INTO package (name,agentid,created) "
-					+ "VALUES( ?, ?, ?)"
-					, new PreparedStatementSetter() {
-						public void setValues(PreparedStatement ps) throws SQLException {
-							ps.setString(1,gzPackage.getName());
+			getJdbcTemplate().update(
+				    new PreparedStatementCreator() {
+				        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+				            PreparedStatement ps =
+				                connection.prepareStatement(sql, new String[] {"id"});
+				            ps.setString(1,group.getName());
+				            ps.setString(2,group.getDescription());
+							ps.setString(3,group.getMember().getMemberId());
+							ps.setTimestamp(4,t1);
+				            return ps;
+				        }
+				    },
+				    keyHolder);
+			
+			group.setId(keyHolder.getKey().longValue());
+		}
+		catch (DataAccessException e)
+		{
+			log.error("Could not execute : " + sql + " - " + e.getMessage());
+			throw new GzPersistenceRuntimeException("Could not execute : " + sql + " - " + e.getMessage());
+		}	
+	}
+	
+	@Override
+	public Map<String,GzGroup> getGroups(String memberId)
+	{
+		Map<String,GzGroup> groups = new TreeMap<String,GzGroup>();
+		
+		List<GzGroup> grps = getJdbcTemplate().query("SELECT * FROM gzgroup WHERE memberid= ?", new Object[]{ memberId }, BeanPropertyRowMapper.newInstance(GzGroup.class));
+		for (GzGroup grp : grps)
+		{
+			grp.setPackages(getPackagesByGroupId(grp.getId()));
+			groups.put(grp.getName(), grp);
+		}
+		
+		return groups;
+	}
+	
+	private Map<String, GzPackage> getPackagesByGroupId(long id)
+	{
+		Map<String, GzPackage> map = new TreeMap<String, GzPackage>();
+		List<GzPackage> gzPackages = getJdbcTemplate().query("SELECT * FROM PACKAGE WHERE groupid = ?", 
+								new Object[]{ id }, BeanPropertyRowMapper.newInstance(GzPackage.class));
+		
+		for (GzPackage gzPackage : gzPackages)
+		{
+			gzPackage.setGameTypePayouts(getGameTypePayouts(gzPackage.getId()));
+			map.put(gzPackage.getName(), gzPackage);
+		}
+		return map;
+	}
+
+
+	@Override
+	public void storePackage(GzPackage gzPackage) {
+		final Timestamp t1 = new Timestamp(gzPackage.getCreated().getTime());
+		String sql = "INSERT INTO package (name,memberid,created) VALUES( ?, ?, ?)";
+		try
+		{
+			KeyHolder keyHolder = new GeneratedKeyHolder();
+			getJdbcTemplate().update(
+				    new PreparedStatementCreator() {
+				        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+				            PreparedStatement ps =
+				                connection.prepareStatement(sql, new String[] {"id"});
+				            ps.setString(1,gzPackage.getName());
 							ps.setString(2,gzPackage.getMember().getMemberId());
 							ps.setTimestamp(3,t1);
-						}
-					},keyHolder);
+				            return ps;
+				        }
+				    },
+				    keyHolder);
+			
 			gzPackage.setId(keyHolder.getKey().longValue());
 			
 			for (GzGameTypePayouts gtp : gzPackage.getGameTypePayouts().values())
@@ -48,8 +123,8 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 		}
 		catch (DataAccessException e)
 		{
-			log.error("Could not execute : " + e.getMessage());
-			throw new GzPersistenceRuntimeException("Could not execute : " + e.getMessage());
+			log.error("Could not execute : " + sql + " - " + e.getMessage());
+			throw new GzPersistenceRuntimeException("Could not execute : " + sql + " - " + e.getMessage());
 		}	
 	}
 	
@@ -64,19 +139,34 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 	private void storeGameTypePayouts(GzGameTypePayouts gtp,long packageId)
 	{
 		KeyHolder keyHolder = new GeneratedKeyHolder();
-		getJdbcTemplate().update("INSERT INTO gametypepayout (packageid,gametype,commission) "
-				+ "VALUES( ?, ?, ?)"
-				, new PreparedStatementSetter() {
-					public void setValues(PreparedStatement ps) throws SQLException {
-						ps.setLong(1,packageId);
-						ps.setString(2,gtp.getGameType().name());
-						ps.setDouble(3,gtp.getCommission());
-					}
-				},keyHolder);
+		String sql = "INSERT INTO gametypepayout (packageid,gametype,commission) VALUES( ?, ?, ?)";
+		
+		try
+		{
+			getJdbcTemplate().update(
+				    new PreparedStatementCreator() {
+				        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+				            PreparedStatement ps =
+				                connection.prepareStatement(sql, new String[] {"id"});
+				            ps.setLong(1,packageId);
+							ps.setString(2,gtp.getGameType().name());
+							ps.setDouble(3,gtp.getCommission());
+				            return ps;
+				        }
+				    },
+				    keyHolder);
+		}
+		catch (DataAccessException e)
+		{
+			log.error("Could not execute : " + sql + " - " + e.getMessage());
+			throw new GzPersistenceRuntimeException("Could not execute : " + sql + " - " + e.getMessage());
+		}	
+		
 		gtp.setId(keyHolder.getKey().longValue());
 		for (Dx4PayOut po : gtp.getPayOuts())
 		{
-			storePayout(po,gtp.hashCode());
+			if (po!=null)
+				storePayout(po,gtp.getId());
 		}
 	}
 
@@ -111,7 +201,7 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 		Map<Dx4GameTypeJson, GzGameTypePayouts> map = new TreeMap<Dx4GameTypeJson, GzGameTypePayouts>();
 		for (GzGameTypePayouts gtp : gtps)
 		{
-			gtp.setPayOuts(getPayouts(gtp.getId()));
+			gtp.mapPayOuts(getPayouts(gtp.getId()));
 			map.put(gtp.getGameType(), gtp);
 		}
 		return map;
@@ -119,14 +209,14 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 
 	private List<Dx4PayOut> getPayouts(long gtpId) {
 
-		List<Dx4PayOut> pos = getJdbcTemplate().query("SELECT * FROM gzpackage WHERE gametypepayoutid = ?", 
+		List<Dx4PayOut> pos = getJdbcTemplate().query("SELECT * FROM gzpayout WHERE gametypepayoutid = ?", 
 						new Object[]{ gtpId }, new GzPayOutRowMapper());
 		return pos;
 	}
 	
 	private void clearPackage(long packageId)
 	{
-		String sql = "DELETE FROM gzpayout WHERE gametypepayoutid = (SELECT id FROM gametypepayout WHERE packageid = ?)";
+		String sql = "DELETE FROM gzpayout WHERE gametypepayoutid IN (SELECT id FROM gametypepayout WHERE packageid = ?)";
 		getJdbcTemplate().update(sql, new Object[]{packageId} );
 		sql = "DELETE FROM gametypepayout WHERE packageid = ?";
 		getJdbcTemplate().update(sql, new Object[]{packageId} );

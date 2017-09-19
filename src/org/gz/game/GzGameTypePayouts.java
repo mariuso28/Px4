@@ -28,6 +28,11 @@ public class GzGameTypePayouts {
 		setGameType(gameType);
 	}
 
+	public void mapPayOuts(List<Dx4PayOut> payouts) {
+		for (Dx4PayOut payout : payouts)
+			addInPayOut(payout);
+	}
+		
 	public void addInPayOut(Dx4PayOut payout)
 	{
 		switch (payout.getType().getPlace())
@@ -78,5 +83,6 @@ public class GzGameTypePayouts {
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	
 }

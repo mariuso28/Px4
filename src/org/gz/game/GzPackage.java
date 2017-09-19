@@ -18,6 +18,7 @@ public class GzPackage
 	private static Logger log = Logger.getLogger(GzPackage.class);
 	
 	private long id;
+	private GzGroup group;
 	private String name;
 	private GzBaseUser member;
 	private String memberId;
@@ -29,18 +30,22 @@ public class GzPackage
 		setCreated((new GregorianCalendar()).getTime());
 	}
 
+	public GzPackage(String name)
+	{
+		this();
+		setName(name);
+	}
+	
 	public void populateDefaults(Dx4MetaGame metagame)
 	{
 		for (Dx4GameTypeJson gt : Dx4GameTypeJson.values())
 		{
-			log.info("Building for default : " + gt.name() + " placings: " + gt.getPlacings()[0] + ","  + gt.getPlacings()[1] 
-												+ ","  + gt.getPlacings()[2] + ","  + gt.getPlacings()[3] + "," + gt.getPlacings()[4]);
+			log.debug("Building for default : " + gt.name() + " placings: " + gt.getPlacings()[0] + ","  + gt.getPlacings()[1] 
+											+ ","  + gt.getPlacings()[2] + ","  + gt.getPlacings()[3] + "," + gt.getPlacings()[4]);
 			GzGameTypePayouts gtp = new GzGameTypePayouts(gt);
 			
 			Dx4Game game = metagame.getGameByType(gt);
-			log.info("Using game : " + game);
-			if (gt.equals(Dx4GameTypeJson.D2C))
-				log.info("found");
+			// log.info("Using game : " + game);
 			if (gt.getPlacings()[0])
 			{
 				Dx4PayOutTypeJson pt = Dx4PayOutTypeJson.valueOfFromCode('F');
@@ -74,6 +79,26 @@ public class GzPackage
 			
 			gameTypePayouts.put(gt,gtp);
 		}
+	}
+	
+	public String getSummaryPayouts()
+	{
+		return "" + gameTypePayouts.get(Dx4GameTypeJson.D4Big).getPayOuts().get(0).getPayOut()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.D4Small).getPayOuts().get(0).getPayOut()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.D4A).getPayOuts().get(0).getPayOut()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.ABCA).getPayOuts().get(0).getPayOut()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.ABCC).getPayOuts().get(0).getPayOut()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.D2A).getPayOuts().get(0).getPayOut();
+	}
+	
+	public String getSummaryCommissions()
+	{
+		return "" + gameTypePayouts.get(Dx4GameTypeJson.D4Big).getCommission()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.D4Small).getCommission()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.D4A).getCommission()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.ABCA).getCommission()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.ABCC).getCommission()
+				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.D2A).getCommission();
 	}
 	
 	public long getId() {
@@ -122,6 +147,19 @@ public class GzPackage
 
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
+	}
+
+	@Override
+	public String toString() {
+		return "GzPackage [id=" + id + ", name=" + name + ", memberId=" + memberId + ", created=" + created + "]";
+	}
+
+	public GzGroup getGroup() {
+		return group;
+	}
+
+	public void setGroup(GzGroup group) {
+		this.group = group;
 	}
 	
 	

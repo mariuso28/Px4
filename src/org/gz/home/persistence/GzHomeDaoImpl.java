@@ -28,6 +28,9 @@ import org.gz.agent.persistence.GzAgentDao;
 import org.gz.baseuser.GzBaseUser;
 import org.gz.baseuser.GzRole;
 import org.gz.baseuser.persistence.GzBaseUserDao;
+import org.gz.game.GzGroup;
+import org.gz.game.GzPackage;
+import org.gz.game.persistence.GzGameDao;
 import org.gz.home.GzHome;
 import org.gz.web.summary.GzSummaryEntry;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +48,8 @@ public class GzHomeDaoImpl implements GzHome {
 	private GzAgentDao gzAgentDao;
 	@Autowired
 	private GzAccountDao gzAccountDao;
+	@Autowired
+	private GzGameDao gzGameDao;
 	
 	private String closeInvoiceStartAt;
 	private String closeInvoiceAfterMins;
@@ -396,5 +401,35 @@ public class GzHomeDaoImpl implements GzHome {
 	@Override
 	public List<GzSummaryEntry> getSummaryEntries(GzBaseUser superior) {
 		return gzAccountDao.getSummaryEntries(superior);
+	}
+
+	@Override
+	public void storePackage(GzPackage gzPackage) {
+		gzGameDao.storePackage(gzPackage);
+	}
+
+	@Override
+	public void updatePackage(GzPackage gzPackage) {
+		gzGameDao.updatePackage(gzPackage);
+	}
+
+	@Override
+	public GzPackage getPackageById(long id) {
+		return gzGameDao.getPackageById(id);
+	}
+
+	@Override
+	public void storeGroup(GzGroup group) {
+		gzGameDao.storeGroup(group);
+	}
+
+	@Override
+	public void addPackageToGroup(GzGroup group, GzPackage gzPackage) {
+		gzGameDao.addPackageToGroup(group, gzPackage);
+	}
+
+	@Override
+	public Map<String, GzGroup> getGroups(String memberId) {
+		return gzGameDao.getGroups(memberId);
 	}
 }

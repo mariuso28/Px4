@@ -44,6 +44,12 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 		<property name="jdbcTemplate" ref="jdbcTemplate1" />
 	</bean>
 
+	<bean id="gzGameDao"
+		class="org.gz.game.persistence.GzGameDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate1" />
+	</bean>
+
+
 
 	<bean id="gzHome"
 		class="org.gz.home.persistence.GzHomeDaoImpl"> 
