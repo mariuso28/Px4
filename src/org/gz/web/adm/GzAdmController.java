@@ -391,7 +391,7 @@ public class GzAdmController {
 			}
 			else
 			if (errMsg.isEmpty())
-				errMsg = validateCommissionsAndCredit(command,superior,account);
+				errMsg = validateCommissionsAndCredit(command,superior,account,true);
 			
 			if (!errMsg.isEmpty())
 			{
@@ -485,7 +485,7 @@ public class GzAdmController {
 			GzBaseUser modify = (GzBaseUser) model.get("currUserModify");
 			
 			GzAccount account = new GzAccount();
-			String errMsg = validateCommissionsAndCredit(command,superior,account);
+			String errMsg = validateCommissionsAndCredit(command,superior,account,false);
 			
 			if (!errMsg.isEmpty())
 			{
@@ -512,7 +512,7 @@ public class GzAdmController {
 			return goAdmHome("","Member : " +  modify.getMemberId() + " updated.",model);
 		}
 		
-		private String validateCommissionsAndCredit(GzMemberCommand command,GzBaseUser superior,GzAccount account)
+		private String validateCommissionsAndCredit(GzMemberCommand command,GzBaseUser superior,GzAccount account,boolean newMember)
 		{
 			DecimalFormat df = new DecimalFormat("##0.00");
 			String errMsg = "";
@@ -535,7 +535,7 @@ public class GzAdmController {
 				if (wc>superior.getAccount().getWinCommission())
 					errMsg += "Win Commission cannot exceed : " + df.format(maxWc) + ",";
 				
-				if (errMsg.isEmpty())
+				if (errMsg.isEmpty() && !newMember)
 				{
 					double maxDsBc = gzServices.getGzHome().getHigestDownstreamCommission('B',superior.getCode());
 					if (bc>maxDsBc)

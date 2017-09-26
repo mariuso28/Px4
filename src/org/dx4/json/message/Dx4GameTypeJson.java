@@ -55,8 +55,8 @@ public enum Dx4GameTypeJson{
 	D2EX(3,"2D In 1st/2nd/3rd/Special/Consolation Prizes",2,Dx4PayOutTypeJson.Cons,false,true,"2B/EX",Dx4GameD2EX.class,true,true,true,true,true),
 	D2B(2,"2D 2nd Prize Only",2,Dx4PayOutTypeJson.Second,false,false,"2SB/EB",Dx4GameD2B.class,false,true,false,false,false),
 	D2CC(2,"3rd Prize Only",2,Dx4PayOutTypeJson.Third,false,false,"2SC/EC",Dx4GameD2CC.class,false,false,true,false,false),
-	D2D(3,"2D Special",3,Dx4PayOutTypeJson.Spec,false,false,"2D",Dx4GameD2D.class,false,false,false,true,false),
-	D2E(3,"2D Consolation",3,Dx4PayOutTypeJson.Cons,false,false,"2E",Dx4GameD2E.class,false,false,false,false,true),
+	D2D(3,"2D Special",2,Dx4PayOutTypeJson.Spec,false,false,"2D",Dx4GameD2D.class,false,false,false,true,false),
+	D2E(3,"2D Consolation",2,Dx4PayOutTypeJson.Cons,false,false,"2E",Dx4GameD2E.class,false,false,false,false,true),
 	
 	D4IBoxBig(4,"4D - IBox 1st/2nd/3rd/Special/Consolation Prizes",4,Dx4PayOutTypeJson.FirstIB24,true,true,"IBoxBig",Dx4GameD4IBoxBig.class,true,true,true,true,true),  
 	D4IBoxSmall(4,"4D - IBox 1st/2nd/3rd Prizes",4,Dx4PayOutTypeJson.FirstIB24,true,false,"IBoxSmall",Dx4GameD4IBoxSmall.class,true,true,true,false,false), 

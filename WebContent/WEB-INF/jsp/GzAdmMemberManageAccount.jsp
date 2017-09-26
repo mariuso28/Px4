@@ -87,7 +87,7 @@
     </tr>
     </tbody>
     </table>
-    <c:if test="${currUser.role != 'ROLE_ADMIN'}">
+    <c:if test="${currUser.role.shortCode != 'adm'}">
     <br>
     <table border="0" cellpadding="3" cellspacing="0" width="600">
     <tbody align="left" style="color:purple;">

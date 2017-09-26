@@ -77,7 +77,9 @@ font: 20px Arial, sans-serif;
 <tr>
   <td><a href="../adm/logon?user&memberId=${currUser.memberId}">Member Management</a></td>
 </tr>
-
+<tr>
+  <td><a href="../package/manage">Package Management</a></td>
+</tr>
 </br>
 <tr>
 <td><a href="../../logon/signin">Logoff</a></td>

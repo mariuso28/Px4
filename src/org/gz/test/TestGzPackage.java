@@ -31,7 +31,7 @@ public class TestGzPackage
 		GzHome gzHome = gzServices.getGzHome();
 		
 		try {
-			Dx4MetaGame metaGame = dx4Home.getMetaGame("4D With ABC");
+/*			Dx4MetaGame metaGame = dx4Home.getMetaGame("4D With ABC");
 			
 			GzBaseUser bu = gzHome.getBaseUserByMemberId("0001");
 			GzGroup group = new GzGroup("Group A","Cats and Dogs",bu);
@@ -56,7 +56,7 @@ public class TestGzPackage
 			gzHome.storePackage(pkg);
 			
 			gzHome.addPackageToGroup(group,pkg);
-			
+*/			
 			Map<String,GzGroup> grps = gzHome.getGroups("0001");
 			for (GzGroup grp : grps.values())
 				log.info(grp);

@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Log In</title>
+<title>logon</title>
 <!--<link rel="stylesheet" type="text/css"
 	href="<c:url value="/resources/css/main_css.css"/>" />-->
   <link href="../../css/style.css" rel="stylesheet" type="text/css" />
@@ -69,7 +69,7 @@ function submitForgotPassword()
     					<tr>
     						<td><font style="color:#aaa; font-size:14px; font-weight:700;">Email Address:</font></td>
               	<td><input id="emailDefault" class="inTable form-control" type="text"
-    							name="email" value="co1@test.com" style="height:24px;"/></td>
+    							name="email" value="0001" style="height:24px;"/></td>
     					</tr>
               <tr>
                 <td>&nbsp;</td>

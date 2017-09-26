@@ -24,6 +24,7 @@ public class GzPackage
 	private String memberId;
 	private Date created;
 	private Map<Dx4GameTypeJson,GzGameTypePayouts> gameTypePayouts = new TreeMap<Dx4GameTypeJson,GzGameTypePayouts>();
+	private boolean expanded;
 
 	public GzPackage()
 	{
@@ -40,6 +41,9 @@ public class GzPackage
 	{
 		for (Dx4GameTypeJson gt : Dx4GameTypeJson.values())
 		{
+			if (gt.isBoxType())
+				continue;
+			
 			log.debug("Building for default : " + gt.name() + " placings: " + gt.getPlacings()[0] + ","  + gt.getPlacings()[1] 
 											+ ","  + gt.getPlacings()[2] + ","  + gt.getPlacings()[3] + "," + gt.getPlacings()[4]);
 			GzGameTypePayouts gtp = new GzGameTypePayouts(gt);
@@ -160,6 +164,14 @@ public class GzPackage
 
 	public void setGroup(GzGroup group) {
 		this.group = group;
+	}
+
+	public boolean isExpanded() {
+		return expanded;
+	}
+
+	public void setExpanded(boolean expanded) {
+		this.expanded = expanded;
 	}
 	
 	

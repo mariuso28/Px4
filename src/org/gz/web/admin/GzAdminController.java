@@ -60,13 +60,9 @@ public class GzAdminController {
 	
 	// exec?returnAdmin
 	@RequestMapping(value = "/exec", params = "returnAdmin", method = RequestMethod.GET)
-    public Object returnAdmin(ModelMap model,HttpServletRequest request,RedirectAttributes stack)
+    public Object returnAdmin(ModelMap model,RedirectAttributes stack)
     {
-		HttpSession session = request.getSession(false);	
-		GzAdmin currUser = (GzAdmin) session.getAttribute("sCurrUser");				
-		model.addAttribute("currUser",currUser);
-		
-		return goAdminHome("",model,stack);
+			return goAdminHome("",model,stack);
     }
 	
 	

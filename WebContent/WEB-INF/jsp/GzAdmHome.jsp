@@ -180,6 +180,7 @@ font: 20px Arial, sans-serif;
   <div style="margin-left:0px" id="Number" class="collapse">
     <a href="../number/manage4D">4D Numbers</a><br>
     <a href="../number/manage3D">3D Numbers</a><br>
+    <a href="../number/manage2D">2D Numbers</a><br>
   </div>
   <button id="rButton"  class="buttonExpandLabel" type="button" data-toggle="collapse" data-target="#Report">
     Report

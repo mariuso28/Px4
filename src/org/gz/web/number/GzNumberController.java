@@ -55,6 +55,22 @@ public class GzNumberController {
 		return new ModelAndView("GzNumberRetainers4D","numberForm", numberForm);
 	}
 	
+
+	@RequestMapping(value = "/manage2D", method = RequestMethod.GET)
+	public ModelAndView manage2D(ModelMap model)
+	{
+		log.info("In manage2D");
+		
+		GzBaseUser currUser = (GzBaseUser) model.get("currUser");
+		
+		GzNumberForm numberForm = new GzNumberForm();
+		model.addAttribute("currNumberDigits",new Integer(2));
+		GzNumberRetainerSet currNumberRetainerSet = gzServices.getGzAccountMgr().getGzNumberRetainerSet(2, currUser);
+		model.addAttribute("currNumberRetainerSet",currNumberRetainerSet);
+		
+		return new ModelAndView("GzNumberRetainers4D","numberForm", numberForm);
+	}
+	
 	@RequestMapping(value="/processNumbers", params="numberCancel", method = RequestMethod.POST)
 	public Object numberCancel(@ModelAttribute("numberForm") GzNumberForm numberForm,ModelMap model)
 	{
