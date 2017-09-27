@@ -1,13 +1,15 @@
 package org.gz.game;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.dx4.game.payout.Dx4PayOut;
 import org.dx4.json.message.Dx4GameTypeJson;
 
-public class GzGameTypePayouts {
+public class GzGameTypePayouts implements Serializable{
 
+	private static final long serialVersionUID = 31924129167538589L;
 	private long id;
 	private Dx4GameTypeJson gameType;
 	private double commission;

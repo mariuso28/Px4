@@ -3,13 +3,8 @@ package org.gz.test;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.dx4.game.Dx4MetaGame;
-import org.dx4.home.Dx4Home;
-import org.dx4.services.Dx4Services;
 import org.gz.baseuser.GzBaseUser;
-import org.gz.game.GzGameTypePayouts;
 import org.gz.game.GzGroup;
-import org.gz.game.GzPackage;
 import org.gz.home.GzHome;
 import org.gz.services.GzServices;
 import org.springframework.context.ApplicationContext;
@@ -25,8 +20,8 @@ public class TestGzPackage
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"Px4-service.xml");
 
-		Dx4Services dx4Services = (Dx4Services) context.getBean("dx4Services");
-		Dx4Home dx4Home = dx4Services.getDx4Home();
+//		Dx4Services dx4Services = (Dx4Services) context.getBean("dx4Services");
+//		Dx4Home dx4Home = dx4Services.getDx4Home();
 		GzServices gzServices = (GzServices) context.getBean("gzServices");
 		GzHome gzHome = gzServices.getGzHome();
 		
@@ -57,7 +52,8 @@ public class TestGzPackage
 			
 			gzHome.addPackageToGroup(group,pkg);
 */			
-			Map<String,GzGroup> grps = gzHome.getGroups("0001");
+			GzBaseUser bu = gzHome.getBaseUserByMemberId("0001");
+			Map<String,GzGroup> grps = gzHome.getGroups(bu);
 			for (GzGroup grp : grps.values())
 				log.info(grp);
 			

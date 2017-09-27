@@ -16,9 +16,9 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
   <script type="text/javascript">
 
-  function submitEditPackage(gname,pname){
+  function submitEditPackage(pname,gname){
 
-     alert(gname + " : " + pname);
+//     alert("IN:" + pname + " " + gname);
 
       oFormObject = document.forms['myForm'];
 
@@ -32,7 +32,7 @@
 
       var myin = document.createElement('input');
       myin.type='hidden';
-      myin.name='editPackage';
+      myin.name='modify';
       myin.value='MaHa';
       oFormObject.appendChild(myin);
       oFormObject.submit();
@@ -47,6 +47,7 @@
     <form:form id="myForm" method="post" action="processPackage" modelAttribute="packageForm">
       <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
       <input type="hidden" name="command.gname" value="xxx" />
+      <input type="hidden" name="command.pname" value="xxx" />
 
     <h2 style="color:Cyan">Manage Packages for ${currUser.memberId} - ${currUser.contact}</h2>
     <table border="1" style="width:100%;" align="left">
@@ -71,6 +72,8 @@
         <td style="text-align:center; vertical-align:middle;">Comm</td>
       </tr>
       <c:forEach items="${group.value.packages}" var="package1" varStatus="status1">
+        <c:set var="pname" value="${package1.value.name}" />
+        <c:set var="gname" value="${group.value.name}" />
         <tr style="font-family:verdana; color:darkblue; background-color:lightblue">
         <td></td>
         <c:choose>
@@ -90,8 +93,11 @@
         <td colspan="6">
         <table border="1" cellpadding="3" cellspacing="0" width="100%">
             <tr style="font-family:verdana; color:white; background-color:darkblue;">
-              <td><input type="submit" name="xxx" value="Edit" class="button" onClick="return submitEditPackage(${group.value.name},${package1.value.name})"
-                 style="height:16px; background-color:green;"/></td>
+              <td>
+                <input type="submit" name="xxx" value="Modify"
+                    class="button" onClick="return submitEditPackage('${pname}','${gname}')"
+                    style="height:16px; background-color:green;"/></td>
+
           <c:forEach items="${package1.value.gameTypePayouts}" var="gameTypePayout" varStatus="status2">
             <td>
               ${gameTypePayout.value.gameType.shortName}
@@ -159,6 +165,9 @@
         </tr>
       </c:if>
       </c:forEach>
+      <tr style="font-family:verdana; color:white; background-color:darkblue">
+        <td colspan="6" style="text-align:center; vertical-align:middle;"><a href="createNewPackage?create&gname=${group.value.name}">Create New Package For Group</a></td></td>
+      </tr>
     </c:forEach>
     </table>
     <tr><td><font color="red" size="3">${packageForm.errMsg}</font></td></tr>

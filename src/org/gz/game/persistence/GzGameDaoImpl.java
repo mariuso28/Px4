@@ -11,9 +11,11 @@ import java.util.TreeMap;
 import org.apache.log4j.Logger;
 import org.dx4.game.payout.Dx4PayOut;
 import org.dx4.json.message.Dx4GameTypeJson;
+import org.gz.baseuser.GzBaseUser;
 import org.gz.game.GzGameTypePayouts;
 import org.gz.game.GzGroup;
 import org.gz.game.GzPackage;
+import org.gz.home.persistence.GzDuplicatePersistenceException;
 import org.gz.home.persistence.GzPersistenceRuntimeException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -28,13 +30,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGameDao {
 
 	private static Logger log = Logger.getLogger(GzGameDaoImpl.class);
-	
-	@Override
-	public void addPackageToGroup(GzGroup group,GzPackage gzPackage)
-	{
-		group.getPackages().put(gzPackage.getName(), gzPackage);
-		getJdbcTemplate().update("UPDATE package SET groupid = ?", new Object[]{ group.getId() } );
-	}
 	
 	@Override
 	public void storeGroup(GzGroup group) {
@@ -67,30 +62,39 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 	}
 	
 	@Override
-	public Map<String,GzGroup> getGroups(String memberId)
+	public Map<String,GzGroup> getGroups(GzBaseUser member)
 	{
 		Map<String,GzGroup> groups = new TreeMap<String,GzGroup>();
-		
-		List<GzGroup> grps = getJdbcTemplate().query("SELECT * FROM gzgroup WHERE memberid= ?", new Object[]{ memberId }, BeanPropertyRowMapper.newInstance(GzGroup.class));
-		for (GzGroup grp : grps)
+		try
 		{
-			grp.setPackages(getPackagesByGroupId(grp.getId()));
-			groups.put(grp.getName(), grp);
+			List<GzGroup> grps = getJdbcTemplate().query("SELECT * FROM gzgroup WHERE memberid= ?", new Object[]{ member.getMemberId() }, BeanPropertyRowMapper.newInstance(GzGroup.class));
+			for (GzGroup grp : grps)
+			{
+				grp.setMember(member);
+				grp.setPackages(getPackagesByGroupId(grp,member));
+				groups.put(grp.getName(), grp);
+			}
 		}
-		
+		catch (DataAccessException e)
+		{
+			log.error("Could not get groups - " + e.getMessage());
+			throw new GzPersistenceRuntimeException("Could not get groups - " + e.getMessage());
+		}	
 		return groups;
 	}
 	
-	private Map<String, GzPackage> getPackagesByGroupId(long id)
+	private Map<String, GzPackage> getPackagesByGroupId(GzGroup grp,GzBaseUser member)
 	{
 		Map<String, GzPackage> map = new TreeMap<String, GzPackage>();
 		List<GzPackage> gzPackages = getJdbcTemplate().query("SELECT * FROM PACKAGE WHERE groupid = ?", 
-								new Object[]{ id }, BeanPropertyRowMapper.newInstance(GzPackage.class));
+								new Object[]{ grp.getId() }, BeanPropertyRowMapper.newInstance(GzPackage.class));
 		
 		for (GzPackage gzPackage : gzPackages)
 		{
 			gzPackage.setGameTypePayouts(getGameTypePayouts(gzPackage.getId()));
 			map.put(gzPackage.getName(), gzPackage);
+			gzPackage.setGroup(grp);
+			gzPackage.setMember(member);
 		}
 		return map;
 	}
@@ -99,7 +103,7 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 	@Override
 	public void storePackage(GzPackage gzPackage) {
 		final Timestamp t1 = new Timestamp(gzPackage.getCreated().getTime());
-		String sql = "INSERT INTO package (name,memberid,created) VALUES( ?, ?, ?)";
+		String sql = "INSERT INTO package (name,memberid,created,groupid) VALUES( ?, ?, ?, ?)";
 		try
 		{
 			KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -111,6 +115,7 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 				            ps.setString(1,gzPackage.getName());
 							ps.setString(2,gzPackage.getMember().getMemberId());
 							ps.setTimestamp(3,t1);
+							ps.setLong(4,gzPackage.getGroup().getId());
 				            return ps;
 				        }
 				    },
@@ -121,9 +126,12 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 			for (GzGameTypePayouts gtp : gzPackage.getGameTypePayouts().values())
 				storeGameTypePayouts(gtp,gzPackage.getId());
 		}
-		catch (DataAccessException e)
+		catch (Exception e)
 		{
 			log.error("Could not execute : " + sql + " - " + e.getMessage());
+			if (e.getMessage().contains("duplicate key value violates unique constraint"))
+				throw new GzDuplicatePersistenceException("Could not execute : " + sql + " - " + e.getMessage());
+			
 			throw new GzPersistenceRuntimeException("Could not execute : " + sql + " - " + e.getMessage());
 		}	
 	}
@@ -131,9 +139,17 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 	@Override
 	public void updatePackage(GzPackage gzPackage)
 	{
-		clearPackage(gzPackage.getId());
-		for (GzGameTypePayouts gtp : gzPackage.getGameTypePayouts().values())
-			storeGameTypePayouts(gtp,gzPackage.getId());
+		try
+		{
+			clearPackage(gzPackage.getId());
+			for (GzGameTypePayouts gtp : gzPackage.getGameTypePayouts().values())
+				storeGameTypePayouts(gtp,gzPackage.getId());
+		}
+		catch (DataAccessException e)
+		{
+			log.error("Could not update package - " + e.getMessage());
+			throw new GzPersistenceRuntimeException("Could not update package - " + e.getMessage());
+		}		
 	}
 
 	private void storeGameTypePayouts(GzGameTypePayouts gtp,long packageId)

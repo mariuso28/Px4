@@ -424,12 +424,7 @@ public class GzHomeDaoImpl implements GzHome {
 	}
 
 	@Override
-	public void addPackageToGroup(GzGroup group, GzPackage gzPackage) {
-		gzGameDao.addPackageToGroup(group, gzPackage);
-	}
-
-	@Override
-	public Map<String, GzGroup> getGroups(String memberId) {
-		return gzGameDao.getGroups(memberId);
+	public Map<String, GzGroup> getGroups(GzBaseUser member) {
+		return gzGameDao.getGroups(member);
 	}
 }

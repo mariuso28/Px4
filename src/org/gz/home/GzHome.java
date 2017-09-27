@@ -99,6 +99,5 @@ public interface GzHome
 	public void updatePackage(GzPackage gzPackage);
 	public GzPackage getPackageById(long id);
 	public void storeGroup(GzGroup group);
-	public void addPackageToGroup(GzGroup group,GzPackage gzPackage);
-	public Map<String, GzGroup> getGroups(String memberId);
+	public Map<String, GzGroup> getGroups(GzBaseUser member);
 }

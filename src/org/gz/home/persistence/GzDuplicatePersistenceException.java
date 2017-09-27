@@ -1,6 +1,6 @@
 package org.gz.home.persistence;
 
-public class GzDuplicatePersistenceException extends GzPersistenceException {
+public class GzDuplicatePersistenceException extends GzPersistenceRuntimeException {
 
 	private static final long serialVersionUID = -560262451620708358L;
 

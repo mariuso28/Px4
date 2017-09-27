@@ -2,6 +2,7 @@ package org.gz.game;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -105,6 +106,64 @@ public class GzPackage
 				+ "/" + gameTypePayouts.get(Dx4GameTypeJson.D2A).getCommission();
 	}
 	
+	public String modifyPackageValues(List<GzGameTypePayoutsEntry> gameTypePayoutsEntry) {
+		String errMsg = "";
+		
+		int index = 0;
+		for (GzGameTypePayouts gtp : gameTypePayouts.values())
+		{
+			errMsg += setCommission(gtp,gameTypePayoutsEntry.get(index));
+			int cnt = 0;
+			for (Dx4PayOut po : gtp.getPayOuts())
+			{
+				if (po!=null)
+					errMsg += setPayout(gtp,po,gameTypePayoutsEntry.get(index),cnt);
+				cnt++;
+			}
+			index++;
+		}
+		
+		if (!errMsg.isEmpty())
+			return "Invalid numeric values - " + errMsg.substring(0, errMsg.length()-2);
+		
+		return errMsg;
+	}
+	
+	private String setPayout(GzGameTypePayouts gtp,Dx4PayOut po, GzGameTypePayoutsEntry gzGameTypePayoutsEntry, int cnt) {
+		String errMsg = "";
+		try
+		{
+			po.setPayOut(Double.parseDouble(gzGameTypePayoutsEntry.getPayOuts().get(cnt)));
+		}
+		catch (NumberFormatException e)
+		{
+			switch (cnt)
+			{
+				case 0: errMsg = "1st"; break;
+				case 1: errMsg = "2nd"; break;
+				case 2: errMsg = "3rd"; break;
+				case 3: errMsg = "4th"; break;
+				default: errMsg = "5th"; break;
+			}
+			return errMsg + " for : " + gtp.getGameType().getShortName() + ", ";
+		}
+		return "";
+	}
+
+	private String setCommission(GzGameTypePayouts gtp,GzGameTypePayoutsEntry gameTypePayoutsEntry)
+	{
+		try
+		{
+			gtp.setCommission(Double.parseDouble(gameTypePayoutsEntry.getCommission()));
+		}
+		catch (NumberFormatException e)
+		{
+			return "Comm for : " + gtp.getGameType().getShortName() + ", ";
+		}
+		return "";
+	}
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -173,6 +232,8 @@ public class GzPackage
 	public void setExpanded(boolean expanded) {
 		this.expanded = expanded;
 	}
+
+	
 	
 	
 }

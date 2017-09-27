@@ -8,6 +8,7 @@ public class GzPackageForm implements Serializable{
 	private String errMsg;
 	private String infoMsg;
 	private GzPackageCommand command;
+	private boolean createNew;
 	
 	public GzPackageForm()
 	{
@@ -35,6 +36,14 @@ public class GzPackageForm implements Serializable{
 
 	public void setCommand(GzPackageCommand command) {
 		this.command = command;
+	}
+
+	public boolean isCreateNew() {
+		return createNew;
+	}
+
+	public void setCreateNew(boolean createNew) {
+		this.createNew = createNew;
 	}
 
 	
