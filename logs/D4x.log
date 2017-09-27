@@ -10545,3 +10545,328 @@
 14:20:22,746  INFO GzPackageController:213 - in createNewPackage
 14:20:51,246  INFO GzPackageController:170 - in storeNewPackage
 14:21:06,612  INFO GzPackageController:170 - in storeNewPackage
+14:24:52,141  INFO GzPackageController:101 - in editPackage for : Group A:Pkg88
+14:39:25,558  INFO Dx4Config:22 - Loading properties from : /home/pmk/px4/dx4.properties
+14:39:25,560  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_COMP = 1000000
+14:39:25,561  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_SMA = -1
+14:39:25,561  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_ZMA = -1
+14:39:25,561  INFO Dx4Config:33 - Loaded property : dx4.paginate.accdetails = 12
+14:39:25,561  INFO Dx4Config:33 - Loaded property : mailDisabled = true
+14:39:25,562  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_MA = -1
+14:39:25,562  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_AGENT = 2000
+14:39:25,562  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_AGENT = 2000
+14:39:25,562  INFO Dx4Config:33 - Loaded property : dx4.mailHedgeBets = off
+14:39:25,562  INFO Dx4Config:33 - Loaded property : dx4.pdfFolder = /home/pmk/dx4/pdf/
+14:39:25,563  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_MA = 10000
+14:39:25,563  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_COMP = -1
+14:39:25,563  INFO Dx4Config:33 - Loaded property : dx4.agentLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:39:25,563  INFO Dx4Config:33 - Loaded property : dx4.paginate.quickbet = 6
+14:39:25,563  INFO Dx4Config:33 - Loaded property : // = 2D
+14:39:25,564  INFO Dx4Config:33 - Loaded property : dx4.floatingPayouts = off
+14:39:25,565  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_MA = -1
+14:39:25,565  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_ZMA = -1
+14:39:25,565  INFO Dx4Config:33 - Loaded property : dx4.xlsFolder = /home/pmk/dx4/xls/
+14:39:25,566  INFO Dx4Config:33 - Loaded property : dx4.exposure.win = 0.0
+14:39:25,566  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_SMA = -1
+14:39:25,566  INFO Dx4Config:33 - Loaded property : dx4.testPastMetaGame = 4D With ABC
+14:39:25,566  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_SMA = 50000
+14:39:25,566  INFO Dx4Config:33 - Loaded property : dx4.floatNumberRefreshTime = 180
+14:39:25,566  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_COMP = -1
+14:39:25,567  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_MA = 10000
+14:39:25,567  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_AGENT = -1
+14:39:25,567  INFO Dx4Config:33 - Loaded property : mailHedgeNotifications = mariuso.pk@gmail.com
+14:39:25,568  INFO Dx4Config:33 - Loaded property : dx4.hedgeBets = off
+14:39:25,568  INFO Dx4Config:33 - Loaded property : dx4.disableInvoicing = off
+14:39:25,568  INFO Dx4Config:33 - Loaded property : mailWinNotifications = mariuso.pk@gmail.com;
+14:39:25,568  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_ZMA = -1
+14:39:25,569  INFO Dx4Config:33 - Loaded property : dx4.delete.member = true
+14:39:25,569  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_COMP = 1000000
+14:39:25,569  INFO Dx4Config:33 - Loaded property : dx4.strictNumberValidation = on
+14:39:25,569  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_ZMA = 200000
+14:39:25,569  INFO Dx4Config:33 - Loaded property : mailCcNotifications = mariuso.pk@gmail.com;kai.109417@gmail.com
+14:39:25,570  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_SMA = 50000
+14:39:25,570  INFO Dx4Config:33 - Loaded property : mailSendFilter = @test.com;@test1.com
+14:39:25,570  INFO Dx4Config:33 - Loaded property : dx4.mailWinBets = off
+14:39:25,570  INFO Dx4Config:33 - Loaded property : dx4.testPastGameDate = 05-03-2014
+14:39:25,571  INFO Dx4Config:33 - Loaded property : dx4.xlsPath = /home/pmk/dx4/xls/
+14:39:25,571  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_AGENT = 2000
+14:39:25,571  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_MA = -1
+14:39:25,572  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_ZMA = 200000
+14:39:25,572  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_SMA = 50000
+14:39:25,572  INFO Dx4Config:33 - Loaded property : dx4.testSameDate = 14-Dec-2013
+14:39:25,572  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_COMP = -1
+14:39:25,572  INFO Dx4Config:33 - Loaded property : dx4.apkFolder = /home/pmk/dx4/apk/
+14:39:25,573  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_MA = 10000
+14:39:25,573  INFO Dx4Config:33 - Loaded property : dx4.testSameDay = false
+14:39:25,573  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_AGENT = -1
+14:39:25,573  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_SMA = -1
+14:39:25,574  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_AGENT = -1
+14:39:25,574  INFO Dx4Config:33 - Loaded property : dx4.tomcat.root = http://localhost:8080/Px4/Px4/
+14:39:25,574  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_ZMA = 200000
+14:39:25,574  INFO Dx4Config:33 - Loaded property : dx4.redirectPath = http://localhost:8080/Dx4/Dx4/invalid
+14:39:25,575  INFO Dx4Config:33 - Loaded property : dx4.playerLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:39:25,575  INFO Dx4Config:33 - Loaded property : dx4.exposure.bet = 0.0
+14:39:25,575  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_COMP = 1000000
+14:39:25,575  INFO Dx4Config:33 - Loaded property : dx4.adminLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:39:25,576  INFO Dx4Config:33 - Loaded property : dx4.drawTime = 17:00
+14:39:25,576  INFO Dx4Config:33 - Loaded property : dx4.pdfPath = /home/pmk/dx4/pdf/
+14:39:25,576  INFO Dx4Config:33 - Loaded property : dx4.allowPastGame = false
+14:39:36,216  INFO Dx4LogonController:42 - Received request to signin XXX
+14:39:38,711  INFO CustomUserDetailsService:35 - loadUserByUsername email : 0001
+14:39:38,724  INFO CustomUserDetailsService:61 - trying loadUserByUsername by memberId : 0001
+14:39:39,027  INFO CustomUserDetailsService:76 - User : 0001 found with role :ROLE_GZADMIN
+14:39:39,029  INFO CustomUserDetailsService:83 - Using User : 0001 with authorities :[ROLE_GZADMIN]
+14:39:39,118  INFO CustomAuthenticationSuccessHandler:27 - In onAuthenticationSuccess
+14:39:39,118  INFO CustomAuthenticationSuccessHandler:29 - got user : 0001 authorities : [ROLE_GZADMIN]
+14:39:39,119  INFO CustomAuthenticationSuccessHandler:60 - Sending to : /Px4/gz/admin/logon?user&memberId=0001
+14:39:39,200  INFO GzAdminController:38 - Received request to logon
+14:39:41,281  INFO GzPackageController:39 - In manage
+14:39:51,949  INFO GzPackageController:39 - In manage
+14:43:20,628  INFO GzPackageController:39 - In manage
+14:43:29,768  INFO GzPackageController:39 - In manage
+14:45:01,742  INFO GzPackageController:39 - In manage
+14:45:08,182  INFO GzPackageController:39 - In manage
+14:46:29,687  INFO GzPackageController:39 - In manage
+14:47:12,268  INFO GzPackageController:39 - In manage
+14:47:19,523  INFO GzPackageController:39 - In manage
+14:48:34,695  INFO GzPackageController:39 - In manage
+14:48:41,647  INFO GzPackageController:39 - In manage
+14:50:02,932  INFO GzPackageController:39 - In manage
+14:53:49,454  INFO Dx4Config:22 - Loading properties from : /home/pmk/px4/dx4.properties
+14:53:49,456  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_COMP = 1000000
+14:53:49,456  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_SMA = -1
+14:53:49,457  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_ZMA = -1
+14:53:49,457  INFO Dx4Config:33 - Loaded property : dx4.paginate.accdetails = 12
+14:53:49,457  INFO Dx4Config:33 - Loaded property : mailDisabled = true
+14:53:49,457  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_MA = -1
+14:53:49,457  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_AGENT = 2000
+14:53:49,457  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_AGENT = 2000
+14:53:49,457  INFO Dx4Config:33 - Loaded property : dx4.mailHedgeBets = off
+14:53:49,458  INFO Dx4Config:33 - Loaded property : dx4.pdfFolder = /home/pmk/dx4/pdf/
+14:53:49,458  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_MA = 10000
+14:53:49,458  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_COMP = -1
+14:53:49,458  INFO Dx4Config:33 - Loaded property : dx4.agentLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:53:49,458  INFO Dx4Config:33 - Loaded property : dx4.paginate.quickbet = 6
+14:53:49,458  INFO Dx4Config:33 - Loaded property : // = 2D
+14:53:49,459  INFO Dx4Config:33 - Loaded property : dx4.floatingPayouts = off
+14:53:49,459  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_MA = -1
+14:53:49,459  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_ZMA = -1
+14:53:49,460  INFO Dx4Config:33 - Loaded property : dx4.xlsFolder = /home/pmk/dx4/xls/
+14:53:49,460  INFO Dx4Config:33 - Loaded property : dx4.exposure.win = 0.0
+14:53:49,460  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_SMA = -1
+14:53:49,460  INFO Dx4Config:33 - Loaded property : dx4.testPastMetaGame = 4D With ABC
+14:53:49,460  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_SMA = 50000
+14:53:49,460  INFO Dx4Config:33 - Loaded property : dx4.floatNumberRefreshTime = 180
+14:53:49,461  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_COMP = -1
+14:53:49,461  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_MA = 10000
+14:53:49,461  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_AGENT = -1
+14:53:49,461  INFO Dx4Config:33 - Loaded property : mailHedgeNotifications = mariuso.pk@gmail.com
+14:53:49,461  INFO Dx4Config:33 - Loaded property : dx4.hedgeBets = off
+14:53:49,461  INFO Dx4Config:33 - Loaded property : dx4.disableInvoicing = off
+14:53:49,461  INFO Dx4Config:33 - Loaded property : mailWinNotifications = mariuso.pk@gmail.com;
+14:53:49,462  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_ZMA = -1
+14:53:49,462  INFO Dx4Config:33 - Loaded property : dx4.delete.member = true
+14:53:49,462  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_COMP = 1000000
+14:53:49,462  INFO Dx4Config:33 - Loaded property : dx4.strictNumberValidation = on
+14:53:49,462  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_ZMA = 200000
+14:53:49,462  INFO Dx4Config:33 - Loaded property : mailCcNotifications = mariuso.pk@gmail.com;kai.109417@gmail.com
+14:53:49,463  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_SMA = 50000
+14:53:49,463  INFO Dx4Config:33 - Loaded property : mailSendFilter = @test.com;@test1.com
+14:53:49,463  INFO Dx4Config:33 - Loaded property : dx4.mailWinBets = off
+14:53:49,463  INFO Dx4Config:33 - Loaded property : dx4.testPastGameDate = 05-03-2014
+14:53:49,463  INFO Dx4Config:33 - Loaded property : dx4.xlsPath = /home/pmk/dx4/xls/
+14:53:49,463  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_AGENT = 2000
+14:53:49,463  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_MA = -1
+14:53:49,464  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_ZMA = 200000
+14:53:49,464  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_SMA = 50000
+14:53:49,464  INFO Dx4Config:33 - Loaded property : dx4.testSameDate = 14-Dec-2013
+14:53:49,464  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_COMP = -1
+14:53:49,464  INFO Dx4Config:33 - Loaded property : dx4.apkFolder = /home/pmk/dx4/apk/
+14:53:49,464  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_MA = 10000
+14:53:49,464  INFO Dx4Config:33 - Loaded property : dx4.testSameDay = false
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_AGENT = -1
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_SMA = -1
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_AGENT = -1
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.tomcat.root = http://localhost:8080/Px4/Px4/
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_ZMA = 200000
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.redirectPath = http://localhost:8080/Dx4/Dx4/invalid
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.playerLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:53:49,465  INFO Dx4Config:33 - Loaded property : dx4.exposure.bet = 0.0
+14:53:49,466  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_COMP = 1000000
+14:53:49,466  INFO Dx4Config:33 - Loaded property : dx4.adminLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:53:49,466  INFO Dx4Config:33 - Loaded property : dx4.drawTime = 17:00
+14:53:49,466  INFO Dx4Config:33 - Loaded property : dx4.pdfPath = /home/pmk/dx4/pdf/
+14:53:49,466  INFO Dx4Config:33 - Loaded property : dx4.allowPastGame = false
+14:54:00,995  INFO Dx4LogonController:42 - Received request to signin XXX
+14:54:03,429  INFO CustomUserDetailsService:35 - loadUserByUsername email : 0001
+14:54:03,451  INFO CustomUserDetailsService:61 - trying loadUserByUsername by memberId : 0001
+14:54:03,721  INFO CustomUserDetailsService:76 - User : 0001 found with role :ROLE_GZADMIN
+14:54:03,724  INFO CustomUserDetailsService:83 - Using User : 0001 with authorities :[ROLE_GZADMIN]
+14:54:03,806  INFO CustomAuthenticationSuccessHandler:27 - In onAuthenticationSuccess
+14:54:03,806  INFO CustomAuthenticationSuccessHandler:29 - got user : 0001 authorities : [ROLE_GZADMIN]
+14:54:03,807  INFO CustomAuthenticationSuccessHandler:60 - Sending to : /Px4/gz/admin/logon?user&memberId=0001
+14:54:03,880  INFO GzAdminController:38 - Received request to logon
+14:54:05,784  INFO GzPackageController:39 - In manage
+14:54:13,960  INFO GzPackageController:245 - in storeNewPackage
+14:54:14,164 ERROR GzGameDaoImpl:59 - Could not execute : INSERT INTO gzgroup (name,description,memberid,created) VALUES( ?, ?, ?, ?) - PreparedStatementCallback; SQL []; ERROR: duplicate key value violates unique constraint "uq_gzgroup_name"
+  Detail: Key (name)=(Group A) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "uq_gzgroup_name"
+  Detail: Key (name)=(Group A) already exists.
+14:55:07,610  INFO Dx4Config:22 - Loading properties from : /home/pmk/px4/dx4.properties
+14:55:07,612  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_COMP = 1000000
+14:55:07,612  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_SMA = -1
+14:55:07,612  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_ZMA = -1
+14:55:07,613  INFO Dx4Config:33 - Loaded property : dx4.paginate.accdetails = 12
+14:55:07,613  INFO Dx4Config:33 - Loaded property : mailDisabled = true
+14:55:07,613  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_MA = -1
+14:55:07,613  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_AGENT = 2000
+14:55:07,613  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_AGENT = 2000
+14:55:07,613  INFO Dx4Config:33 - Loaded property : dx4.mailHedgeBets = off
+14:55:07,613  INFO Dx4Config:33 - Loaded property : dx4.pdfFolder = /home/pmk/dx4/pdf/
+14:55:07,614  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_MA = 10000
+14:55:07,614  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_COMP = -1
+14:55:07,614  INFO Dx4Config:33 - Loaded property : dx4.agentLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:55:07,614  INFO Dx4Config:33 - Loaded property : dx4.paginate.quickbet = 6
+14:55:07,615  INFO Dx4Config:33 - Loaded property : // = 2D
+14:55:07,616  INFO Dx4Config:33 - Loaded property : dx4.floatingPayouts = off
+14:55:07,616  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_MA = -1
+14:55:07,616  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_ZMA = -1
+14:55:07,617  INFO Dx4Config:33 - Loaded property : dx4.xlsFolder = /home/pmk/dx4/xls/
+14:55:07,617  INFO Dx4Config:33 - Loaded property : dx4.exposure.win = 0.0
+14:55:07,617  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_SMA = -1
+14:55:07,617  INFO Dx4Config:33 - Loaded property : dx4.testPastMetaGame = 4D With ABC
+14:55:07,617  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_SMA = 50000
+14:55:07,618  INFO Dx4Config:33 - Loaded property : dx4.floatNumberRefreshTime = 180
+14:55:07,618  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_COMP = -1
+14:55:07,618  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_MA = 10000
+14:55:07,618  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_AGENT = -1
+14:55:07,619  INFO Dx4Config:33 - Loaded property : mailHedgeNotifications = mariuso.pk@gmail.com
+14:55:07,619  INFO Dx4Config:33 - Loaded property : dx4.hedgeBets = off
+14:55:07,619  INFO Dx4Config:33 - Loaded property : dx4.disableInvoicing = off
+14:55:07,619  INFO Dx4Config:33 - Loaded property : mailWinNotifications = mariuso.pk@gmail.com;
+14:55:07,620  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_ZMA = -1
+14:55:07,620  INFO Dx4Config:33 - Loaded property : dx4.delete.member = true
+14:55:07,620  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_COMP = 1000000
+14:55:07,620  INFO Dx4Config:33 - Loaded property : dx4.strictNumberValidation = on
+14:55:07,620  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_ZMA = 200000
+14:55:07,621  INFO Dx4Config:33 - Loaded property : mailCcNotifications = mariuso.pk@gmail.com;kai.109417@gmail.com
+14:55:07,621  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_SMA = 50000
+14:55:07,621  INFO Dx4Config:33 - Loaded property : mailSendFilter = @test.com;@test1.com
+14:55:07,621  INFO Dx4Config:33 - Loaded property : dx4.mailWinBets = off
+14:55:07,621  INFO Dx4Config:33 - Loaded property : dx4.testPastGameDate = 05-03-2014
+14:55:07,622  INFO Dx4Config:33 - Loaded property : dx4.xlsPath = /home/pmk/dx4/xls/
+14:55:07,622  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_AGENT = 2000
+14:55:07,622  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_MA = -1
+14:55:07,622  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_ZMA = 200000
+14:55:07,623  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_SMA = 50000
+14:55:07,623  INFO Dx4Config:33 - Loaded property : dx4.testSameDate = 14-Dec-2013
+14:55:07,623  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_COMP = -1
+14:55:07,623  INFO Dx4Config:33 - Loaded property : dx4.apkFolder = /home/pmk/dx4/apk/
+14:55:07,624  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_MA = 10000
+14:55:07,624  INFO Dx4Config:33 - Loaded property : dx4.testSameDay = false
+14:55:07,624  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_AGENT = -1
+14:55:07,624  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_SMA = -1
+14:55:07,624  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_AGENT = -1
+14:55:07,625  INFO Dx4Config:33 - Loaded property : dx4.tomcat.root = http://localhost:8080/Px4/Px4/
+14:55:07,625  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_ZMA = 200000
+14:55:07,625  INFO Dx4Config:33 - Loaded property : dx4.redirectPath = http://localhost:8080/Dx4/Dx4/invalid
+14:55:07,625  INFO Dx4Config:33 - Loaded property : dx4.playerLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:55:07,625  INFO Dx4Config:33 - Loaded property : dx4.exposure.bet = 0.0
+14:55:07,626  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_COMP = 1000000
+14:55:07,626  INFO Dx4Config:33 - Loaded property : dx4.adminLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+14:55:07,626  INFO Dx4Config:33 - Loaded property : dx4.drawTime = 17:00
+14:55:07,626  INFO Dx4Config:33 - Loaded property : dx4.pdfPath = /home/pmk/dx4/pdf/
+14:55:07,627  INFO Dx4Config:33 - Loaded property : dx4.allowPastGame = false
+14:55:28,483  INFO Dx4LogonController:42 - Received request to signin XXX
+14:55:30,235  INFO CustomUserDetailsService:35 - loadUserByUsername email : 0001
+14:55:30,246  INFO CustomUserDetailsService:61 - trying loadUserByUsername by memberId : 0001
+14:55:30,526  INFO CustomUserDetailsService:76 - User : 0001 found with role :ROLE_GZADMIN
+14:55:30,528  INFO CustomUserDetailsService:83 - Using User : 0001 with authorities :[ROLE_GZADMIN]
+14:55:30,612  INFO CustomAuthenticationSuccessHandler:27 - In onAuthenticationSuccess
+14:55:30,612  INFO CustomAuthenticationSuccessHandler:29 - got user : 0001 authorities : [ROLE_GZADMIN]
+14:55:30,613  INFO CustomAuthenticationSuccessHandler:60 - Sending to : /Px4/gz/admin/logon?user&memberId=0001
+14:55:30,688  INFO GzAdminController:38 - Received request to logon
+14:55:32,086  INFO GzPackageController:39 - In manage
+14:55:37,016  INFO GzPackageController:245 - in storeNewPackage
+14:55:37,067 ERROR GzGameDaoImpl:59 - Could not execute : INSERT INTO gzgroup (name,description,memberid,created) VALUES( ?, ?, ?, ?) - PreparedStatementCallback; SQL []; ERROR: duplicate key value violates unique constraint "uq_gzgroup_name"
+  Detail: Key (name)=(Group A) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "uq_gzgroup_name"
+  Detail: Key (name)=(Group A) already exists.
+14:55:53,962  INFO GzPackageController:245 - in storeNewPackage
+14:56:03,250  INFO GzPackageController:213 - in createNewPackage
+14:56:08,912  INFO GzPackageController:170 - in storeNewPackage
+15:03:15,517  INFO GzPackageController:101 - in editPackage for : Group A:MyPackage
+15:11:34,633  INFO GzPackageController:101 - in editPackage for : Group A:MyPackage
+15:30:08,953  INFO Dx4Config:22 - Loading properties from : /home/pmk/px4/dx4.properties
+15:30:08,955  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_COMP = 1000000
+15:30:08,955  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_SMA = -1
+15:30:08,955  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_ZMA = -1
+15:30:08,955  INFO Dx4Config:33 - Loaded property : dx4.paginate.accdetails = 12
+15:30:08,956  INFO Dx4Config:33 - Loaded property : mailDisabled = true
+15:30:08,956  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_MA = -1
+15:30:08,956  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_AGENT = 2000
+15:30:08,956  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_AGENT = 2000
+15:30:08,956  INFO Dx4Config:33 - Loaded property : dx4.mailHedgeBets = off
+15:30:08,956  INFO Dx4Config:33 - Loaded property : dx4.pdfFolder = /home/pmk/dx4/pdf/
+15:30:08,957  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_MA = 10000
+15:30:08,957  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_COMP = -1
+15:30:08,957  INFO Dx4Config:33 - Loaded property : dx4.agentLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+15:30:08,957  INFO Dx4Config:33 - Loaded property : dx4.paginate.quickbet = 6
+15:30:08,957  INFO Dx4Config:33 - Loaded property : // = 2D
+15:30:08,958  INFO Dx4Config:33 - Loaded property : dx4.floatingPayouts = off
+15:30:08,958  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_MA = -1
+15:30:08,958  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_ZMA = -1
+15:30:08,959  INFO Dx4Config:33 - Loaded property : dx4.xlsFolder = /home/pmk/dx4/xls/
+15:30:08,959  INFO Dx4Config:33 - Loaded property : dx4.exposure.win = 0.0
+15:30:08,959  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_SMA = -1
+15:30:08,959  INFO Dx4Config:33 - Loaded property : dx4.testPastMetaGame = 4D With ABC
+15:30:08,959  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_SMA = 50000
+15:30:08,959  INFO Dx4Config:33 - Loaded property : dx4.floatNumberRefreshTime = 180
+15:30:08,960  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_COMP = -1
+15:30:08,960  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_MA = 10000
+15:30:08,960  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_AGENT = -1
+15:30:08,960  INFO Dx4Config:33 - Loaded property : mailHedgeNotifications = mariuso.pk@gmail.com
+15:30:08,960  INFO Dx4Config:33 - Loaded property : dx4.hedgeBets = off
+15:30:08,960  INFO Dx4Config:33 - Loaded property : dx4.disableInvoicing = off
+15:30:08,961  INFO Dx4Config:33 - Loaded property : mailWinNotifications = mariuso.pk@gmail.com;
+15:30:08,961  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_ZMA = -1
+15:30:08,961  INFO Dx4Config:33 - Loaded property : dx4.delete.member = true
+15:30:08,961  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_COMP = 1000000
+15:30:08,961  INFO Dx4Config:33 - Loaded property : dx4.strictNumberValidation = on
+15:30:08,961  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D2.ROLE_ZMA = 200000
+15:30:08,961  INFO Dx4Config:33 - Loaded property : mailCcNotifications = mariuso.pk@gmail.com;kai.109417@gmail.com
+15:30:08,962  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_SMA = 50000
+15:30:08,962  INFO Dx4Config:33 - Loaded property : mailSendFilter = @test.com;@test1.com
+15:30:08,962  INFO Dx4Config:33 - Loaded property : dx4.mailWinBets = off
+15:30:08,962  INFO Dx4Config:33 - Loaded property : dx4.testPastGameDate = 05-03-2014
+15:30:08,962  INFO Dx4Config:33 - Loaded property : dx4.xlsPath = /home/pmk/dx4/xls/
+15:30:08,962  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_AGENT = 2000
+15:30:08,963  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_MA = -1
+15:30:08,963  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_ZMA = 200000
+15:30:08,963  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_SMA = 50000
+15:30:08,963  INFO Dx4Config:33 - Loaded property : dx4.testSameDate = 14-Dec-2013
+15:30:08,963  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D3.ROLE_COMP = -1
+15:30:08,963  INFO Dx4Config:33 - Loaded property : dx4.apkFolder = /home/pmk/dx4/apk/
+15:30:08,963  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D3.ROLE_MA = 10000
+15:30:08,964  INFO Dx4Config:33 - Loaded property : dx4.testSameDay = false
+15:30:08,964  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_AGENT = -1
+15:30:08,964  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D2.ROLE_SMA = -1
+15:30:08,964  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.win.D4.ROLE_AGENT = -1
+15:30:08,964  INFO Dx4Config:33 - Loaded property : dx4.tomcat.root = http://localhost:8080/Px4/Px4/
+15:30:08,964  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_ZMA = 200000
+15:30:08,964  INFO Dx4Config:33 - Loaded property : dx4.redirectPath = http://localhost:8080/Dx4/Dx4/invalid
+15:30:08,965  INFO Dx4Config:33 - Loaded property : dx4.playerLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+15:30:08,965  INFO Dx4Config:33 - Loaded property : dx4.exposure.bet = 0.0
+15:30:08,965  INFO Dx4Config:33 - Loaded property : dx4.num.exposure.bet.D4.ROLE_COMP = 1000000
+15:30:08,965  INFO Dx4Config:33 - Loaded property : dx4.adminLogonPath = http://localhost:8080/Dx4/Dx4/logon/signin
+15:30:08,965  INFO Dx4Config:33 - Loaded property : dx4.drawTime = 17:00
+15:30:08,965  INFO Dx4Config:33 - Loaded property : dx4.pdfPath = /home/pmk/dx4/pdf/
+15:30:08,965  INFO Dx4Config:33 - Loaded property : dx4.allowPastGame = false
+15:30:17,940  INFO Dx4LogonController:42 - Received request to signin XXX
+15:30:20,138  INFO CustomUserDetailsService:35 - loadUserByUsername email : 0001
+15:30:20,160  INFO CustomUserDetailsService:61 - trying loadUserByUsername by memberId : 0001
+15:30:20,446  INFO CustomUserDetailsService:76 - User : 0001 found with role :ROLE_GZADMIN
+15:30:20,447  INFO CustomUserDetailsService:83 - Using User : 0001 with authorities :[ROLE_GZADMIN]
+15:30:20,531  INFO CustomAuthenticationSuccessHandler:27 - In onAuthenticationSuccess
+15:30:20,531  INFO CustomAuthenticationSuccessHandler:29 - got user : 0001 authorities : [ROLE_GZADMIN]
+15:30:20,532  INFO CustomAuthenticationSuccessHandler:60 - Sending to : /Px4/gz/admin/logon?user&memberId=0001
+15:30:20,618  INFO GzAdminController:38 - Received request to logon
+15:30:22,112  INFO GzPackageController:39 - In manage

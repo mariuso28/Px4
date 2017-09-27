@@ -238,6 +238,34 @@ public class GzPackageController {
 		return new ModelAndView("GzPackageModify","packageForm", packageForm);
 	}
 
+	@RequestMapping(value = "/processPackage",  params="createNewGroup",  method = RequestMethod.POST)
+	public ModelAndView createNewGroup(ModelMap model,@ModelAttribute("packageForm") GzPackageForm packageForm)
+	{
+		GzPackageCommand command = packageForm.getCommand();
+		log.info("in storeNewPackage");
+			
+		GzBaseUser currUser = (GzBaseUser) model.get("currUser");	
+		packageForm = new GzPackageForm();
+		try
+		{
+			GzGroup group = new GzGroup(command.getNewGroupName(),"Cats and Dogs",currUser);
+			gzServices.getGzHome().storeGroup(group);
+			Map<String,GzGroup> grps = gzServices.getGzHome().getGroups(currUser);
+			model.addAttribute("currGroupMap",grps);
+		}
+		catch (GzDuplicatePersistenceException e)
+		{
+			packageForm.setErrMsg("Group : " + command.getNewGroupName() + " Already exists please choose another.");
+		}
+		catch (GzPersistenceRuntimeException e)
+		{
+			e.printStackTrace();
+			packageForm.setErrMsg("Could not create group - contact support");
+		}
+		
+		return new ModelAndView("GzPackage","packageForm", packageForm);
+	}
+	
 	
 	@RequestMapping(value = "/processPackage",  params="cancel", method = RequestMethod.POST)
 	public Object cancel(ModelMap model)

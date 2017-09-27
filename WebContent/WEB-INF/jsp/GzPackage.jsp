@@ -60,7 +60,7 @@
         <col span="1" style="width: 20%;">
     </colgroup>
     <c:forEach items="${currGroupMap}" var="group" varStatus="status">
-      <tr style="font-family:verdana; color:white; background-color:darkblue">
+      <tr style="font-family:verdana; color:gold; background-color:darkblue">
         <td colspan="6" style="text-align:center; vertical-align:middle;">${group.value.name}</td>
       </tr>
         <tr style="font-family:verdana; color:white; background-color:darkblue">
@@ -170,19 +170,29 @@
       </tr>
     </c:forEach>
     </table>
-    <tr><td><font color="red" size="3">${packageForm.errMsg}</font></td></tr>
-    <tr><td><font color="blue" size="3">${packageForm.infoMsg}</font></td></tr>
     <br/>
     <br/>
-    <table border="0" cellpadding="3" cellspacing="0" width="600">
-    <tbody align="left" style="color:purple;">
-    </br>
+    <table border="0" cellpadding="3" cellspacing="0" width="50%">
+    <colgroup>
+          <col span="1" style="width: 8%;">
+          <col span="1" style="width: 17%;">
+          <col span="1" style="width: 17%;">
+          <col span="1" style="width: 8%;">
+      </colgroup>
     <tr>
     <td><input type="submit" name="cancel" value="Cancel" class="button" style="height:23px; background-color:red;"/></td>
+    <c:if test="${currUser.role.shortCode == 'adm'}">
+        <td><font color="lightblue" size="3">Create New Group (Enter Name)</font></td>
+        <td><input type="text" style='ont-family:verdana;color:black;width:20em' name="command.newGroupName"
+                      value="" />
+        </td>
+        <td><input type="submit" name="createNewGroup" value="Submit" class="button" style="height:23px; background-color:blue;"/></td>
+    </c:if>
     </tr>
     <br/>
     <br/>
-    </tbody>
+    <tr><td colspan="4"><font color="red" size="3">${packageForm.errMsg}</font></td></tr>
+    <tr><td colspan="4"><font color="blue" size="3">${packageForm.infoMsg}</font></td></tr>
     </table>
   </div>
 </form:form>

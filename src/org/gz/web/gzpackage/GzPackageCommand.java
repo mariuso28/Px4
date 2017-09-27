@@ -13,6 +13,7 @@ public class GzPackageCommand implements Serializable{
 	private String pname;
 	private List<GzGameTypePayoutsEntry> gameTypePayoutsEntry = new ArrayList<GzGameTypePayoutsEntry>();
 	private String newPackageName;
+	private String newGroupName;
 	
 	public GzPackageCommand()
 	{
@@ -48,6 +49,14 @@ public class GzPackageCommand implements Serializable{
 
 	public void setNewPackageName(String newPackageName) {
 		this.newPackageName = newPackageName;
+	}
+
+	public String getNewGroupName() {
+		return newGroupName;
+	}
+
+	public void setNewGroupName(String newGroupName) {
+		this.newGroupName = newGroupName;
 	}
 	
 

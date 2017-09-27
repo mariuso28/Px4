@@ -57,6 +57,9 @@ public class GzGameDaoImpl extends NamedParameterJdbcDaoSupport implements GzGam
 		catch (DataAccessException e)
 		{
 			log.error("Could not execute : " + sql + " - " + e.getMessage());
+			if (e.getMessage().contains("duplicate key value violates unique constraint"))
+				throw new GzDuplicatePersistenceException("Could not execute : " + sql + " - " + e.getMessage());
+			
 			throw new GzPersistenceRuntimeException("Could not execute : " + sql + " - " + e.getMessage());
 		}	
 	}
